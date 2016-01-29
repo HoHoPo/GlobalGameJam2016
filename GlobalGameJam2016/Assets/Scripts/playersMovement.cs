@@ -6,17 +6,19 @@ public class playersMovement : MonoBehaviour
 {
 
     //public
-    public float speed;
+    public float speed =10f;
     public float turnSmoothing = 15f;
 
 
     //private
     private Rigidbody rb;
+    private playerResource pr;
 
     // Use this for initialization
     void Start()
     {
         rb = this.GetComponent<Rigidbody>();
+        pr = this.GetComponent<playerResource>();
     }
 
     //called before physics updates -- physics should go here
@@ -24,19 +26,24 @@ public class playersMovement : MonoBehaviour
     {
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
+        bool throwKey = Input.GetButton("Jump");
 
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
         rb.velocity = movement * speed;
 
         //update rotation
         Rotating(moveHorizontal, moveVertical);
-        
-      
+
+        //update throw state
+        if(throwKey == true)
+        {
+            throwInteraction();
+        }
     }
 
     void Rotating (float Horizontal, float Vertical)
     {
-        //create a new vector of the horizontal and veritcal inputs
+        //create a new vector of the horizontal and vertical inputs
         Vector3 targetDirection = new Vector3(Horizontal, 0f, Vertical);
 
         //create a rotation based on this new vector assuming that up is the global y axis
@@ -49,5 +56,18 @@ public class playersMovement : MonoBehaviour
         rb.MoveRotation(newRotation);
     }
 
+    void throwInteraction()
+    {
+        if (pr.carrying == true && pr.atPit == true)
+        {
+            //put item into the pit
+
+        }
+        else if (pr.carrying == true && pr.atPit == false)
+        {
+            //discard Item
+            pr.carrying = false;    
+        }
+    }
 
 }
