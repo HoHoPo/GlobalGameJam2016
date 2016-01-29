@@ -8,6 +8,7 @@ public class playersMovement : MonoBehaviour
     //public
     public float speed =10f;
     public float turnSmoothing = 15f;
+    public GameObject teamBase;
 
     //private
     private bool carrying = false;
@@ -15,12 +16,19 @@ public class playersMovement : MonoBehaviour
     private bool atPit = false;
     private Rigidbody rb;
     private pitManger pit;
+    private float xMin, yMin, xMax, yMax;
 
     // Use this for initialization
     void Start()
     {
         rb = this.GetComponent<Rigidbody>();
         pit = GameObject.FindGameObjectWithTag("pit").GetComponent<pitManger>();
+        xMax = teamBase.transform.localPosition.x + teamBase.transform.localScale.x/2;
+        yMax = teamBase.transform.localPosition.z + teamBase.transform.localScale.z/2;
+            xMin = teamBase.transform.localPosition.x - teamBase.transform.localScale.x/2;
+        yMin     = teamBase.transform.localPosition.z - teamBase.transform.localScale.z/2;
+
+
     }
 
     //called before physics updates -- physics should go here
@@ -33,6 +41,15 @@ public class playersMovement : MonoBehaviour
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
         rb.velocity = movement * speed;
 
+        if (teamBase != null)
+        {
+            rb.position = new Vector3(
+
+                Mathf.Clamp(rb.position.x, xMin, xMax),
+                rb.position.y,
+                Mathf.Clamp(rb.position.z, yMin, yMax)
+                );
+        }
         //update rotation
         Rotating(moveHorizontal, moveVertical);
 
@@ -59,11 +76,11 @@ public class playersMovement : MonoBehaviour
     }
 
     #region Triggers
-    void OnTriggerEnter(Collider other)
+    void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("resource") && carrying == false)
         {
-            ResourePile target = other.GetComponent<ResourePile>();
+            ResourePile target = other.gameObject.GetComponent<ResourePile>();
             //if (target.ready)
             //{
             type = target.type;
@@ -78,7 +95,7 @@ public class playersMovement : MonoBehaviour
         }
     }
 
-    void OnTriggerExit(Collider other)
+    void OnCollisionExit(Collision other)
     {
 
         if (other.gameObject.CompareTag("pit"))

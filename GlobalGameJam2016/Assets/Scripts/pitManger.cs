@@ -20,11 +20,13 @@ public class pitManger : MonoBehaviour {
 
     public void addResource(resouceManager.resourceType newResource)
     {
-        inPit += newResource;
+        inPit += (char)(newResource);
         //if()
         if (resouceManager.resourcePatterns.ContainsKey(inPit))
         {
             //summon thingy
+            inPit = "";
+            pitTextUpdate();
         }
         pitTextUpdate();
     }
