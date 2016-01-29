@@ -9,16 +9,18 @@ public class playersMovement : MonoBehaviour
     public float speed =10f;
     public float turnSmoothing = 15f;
 
-
     //private
+    private bool carrying = false;
+    private resouceManager.resourceType type;
+    private bool atPit = false;
     private Rigidbody rb;
-    private playerResource pr;
+    private pitManger pit;
 
     // Use this for initialization
     void Start()
     {
         rb = this.GetComponent<Rigidbody>();
-        pr = this.GetComponent<playerResource>();
+        pit = GameObject.FindGameObjectWithTag("pit").GetComponent<pitManger>();
     }
 
     //called before physics updates -- physics should go here
@@ -56,17 +58,49 @@ public class playersMovement : MonoBehaviour
         rb.MoveRotation(newRotation);
     }
 
+    #region Triggers
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("resource") && carrying == false)
+        {
+            ResourePile target = other.GetComponent<ResourePile>();
+            //if (target.ready)
+            //{
+            type = target.type;
+            carrying = true;
+            
+            //}
+        }
+
+        if (other.gameObject.CompareTag("pit"))
+        {
+            atPit = true;
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+
+        if (other.gameObject.CompareTag("pit"))
+        {
+            atPit = false;
+        }
+    }
+    #endregion
+
     void throwInteraction()
     {
-        if (pr.carrying == true && pr.atPit == true)
+        if (carrying == true && atPit == true)
         {
             //put item into the pit
+            pit.addResource(type);
+            carrying = false;    
 
         }
-        else if (pr.carrying == true && pr.atPit == false)
+        else if (carrying == true && atPit == false)
         {
             //discard Item
-            pr.carrying = false;    
+            carrying = false;    
         }
     }
 

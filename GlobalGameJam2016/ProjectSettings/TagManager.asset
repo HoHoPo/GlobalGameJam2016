@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Team 1
+  - Fire
+  - pit
+  - resource
   layers:
   - Default
   - TransparentFX

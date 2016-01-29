@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ResourePile : MonoBehaviour {
 
-    public combinationManager.resourceType type;
+    public resouceManager.resourceType type;
 	//public bool infinte = true;
 	//public double probSpawnPerSecond = 0.5;
 	//private double timeoff = 0;
@@ -23,7 +23,8 @@ public class ResourePile : MonoBehaviour {
 	//}
 	//// Use this for initialization
 	void Start () {
-		this.gameObject.tag = ("resource");
+
+        this.gameObject.tag = ("resource");
 	}
 	
 	// Update is called once per frame
