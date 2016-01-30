@@ -7,18 +7,14 @@ public class resouceManager : MonoBehaviour {
 	public enum resourceType
     {
         skull = 's',
-        lava = 'l',
-		gold = 'g',
-		ice='i',
-		earth='e'
+        lava = 'l'
     };
 
     public static Dictionary<string, bool> resourcePatterns = new Dictionary<string, bool>
     {
-        { "sls" ,true},
-		{ "elelg", true},
-		{ "sleig", true},
-		{ "sllll", true}
+        { "sls" ,true },
+        { "sllls",true }
+        
 
     };
 	
