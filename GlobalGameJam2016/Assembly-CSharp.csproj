@@ -45,7 +45,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\ResourePile.cs" />
+     <Compile Include="Assets\Scripts\demonMovement.cs" />
+     <Compile Include="Assets\Scripts\pitManger.cs" />
      <Compile Include="Assets\Scripts\playersMovement.cs" />
+     <Compile Include="Assets\Scripts\resouceManager.cs" />
+     <Compile Include="Assets\Scripts\spawnDemon.cs" />
      <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />

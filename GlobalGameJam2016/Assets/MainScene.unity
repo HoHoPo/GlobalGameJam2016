@@ -411,6 +411,7 @@ GameObject:
   - 33: {fileID: 841036062}
   - 136: {fileID: 841036061}
   - 23: {fileID: 841036060}
+  - 114: {fileID: 841036064}
   m_Layer: 0
   m_Name: Team2
   m_TagString: Untagged
@@ -476,6 +477,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
+--- !u!114 &841036064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 841036059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1ab9df08387000499034360f36c703f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &970551802
 GameObject:
   m_ObjectHideFlags: 0
@@ -549,6 +561,7 @@ GameObject:
   - 136: {fileID: 1121565231}
   - 23: {fileID: 1121565230}
   - 114: {fileID: 1121565234}
+  - 114: {fileID: 1121565235}
   m_Layer: 0
   m_Name: Team1
   m_TagString: pit
@@ -626,6 +639,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pitResourcesText: {fileID: 1828080626}
+--- !u!114 &1121565235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1121565229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1ab9df08387000499034360f36c703f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1168362023
 GameObject:
   m_ObjectHideFlags: 0
