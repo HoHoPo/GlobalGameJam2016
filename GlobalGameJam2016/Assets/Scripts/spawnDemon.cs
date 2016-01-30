@@ -14,7 +14,7 @@ public class spawnDemon : MonoBehaviour {
         } else if (gameObject.name == "Team2Pit")
         {
             GameObject demon = (GameObject)Instantiate(Resources.Load("impprefab"), position, Quaternion.Euler(0, 90, 0));
-            demon.name = "devil";
+            demon.name = "imp";
         }
 
     }

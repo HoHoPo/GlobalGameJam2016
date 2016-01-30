@@ -3,11 +3,14 @@ using System.Collections;
 
 public class demonMovement : MonoBehaviour {
 
-    float speed; 
+    public float speed;
+    public bool moving;
+
+    
 
 	// Use this for initialization
 	void Start () {
-        
+        moving = true;
 
         switch (gameObject.name)
         {
@@ -25,22 +28,21 @@ public class demonMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        transform.Translate(Vector3.forward * speed * Time.deltaTime);
-	
-	}
-
-    void OnCollisionEnter(Collision col)
-    {
-
-        switch (col.gameObject.name)
+        if (moving)
         {
-            case "devil":
-
-                break;
-            case "imp":
-                break;
-            default:
-                break;
+            transform.Translate(Vector3.forward * speed * Time.deltaTime);
         }
+
+    }
+
+    void OnTriggerEnter(Collider col)
+    {
+        if (col.gameObject.name == "devil" || col.gameObject.name == "imp")
+        {
+            moving = false;
+            var combat = gameObject.GetComponent<demonCombat>();
+            combat.beginCombat(col.gameObject);     
+        }
+
     }
 }
