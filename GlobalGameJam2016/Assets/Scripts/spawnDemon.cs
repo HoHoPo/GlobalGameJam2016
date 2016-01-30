@@ -10,7 +10,6 @@ public class spawnDemon : MonoBehaviour {
         {
 
             GameObject demon = (GameObject)Instantiate(Resources.Load("devilprefab"), position, Quaternion.Euler(0, 270, 0));
- 
             demon.name = "devil";
         } else if (gameObject.name == "Team2Pit")
         {
@@ -19,6 +18,22 @@ public class spawnDemon : MonoBehaviour {
         }
 
     }
+
+	public GameObject SpawnDevil(int teamID){
+		Vector3 position = gameObject.transform.position;
+
+		GameObject demon = (GameObject)Instantiate(Resources.Load("devilprefab"));
+		demon.transform.position=position;
+
+		if (teamID == 0) {
+				demon.transform.rotation = Quaternion.Euler(0, 270, 0);
+		}
+		if(teamID == 1){
+				demon.transform.rotation = Quaternion.Euler(0, 90, 0);
+		}
+
+		return demon;
+	}
 	
 	// Update is called once per frame
 	void Update () {

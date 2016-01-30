@@ -10,11 +10,13 @@ public class pitManger : MonoBehaviour {
     public Text pitResourcesText;
 	public List<GameObject> meteorTargets;
 	public GameObject MeteorPrefab;
-
+	public int TeamID;
 	private List<bool> hasMeteor;
+	private spawnDemon DemonSpawner;
 	// Use this for initialization
 	void Start () {
         pitResourcesText.text = "pit has nothing";
+		DemonSpawner = this.GetComponent<spawnDemon> ();
 
 		hasMeteor = new List<bool> ();
 		//Initialize meteor tracking
@@ -38,6 +40,7 @@ public class pitManger : MonoBehaviour {
 			switch (inPit) {
 			case "sleig":
 				Debug.Log ("We summoned SKULL LAVA SKULL");
+
 				break;
 			case "elelg":
 				Debug.Log ("We summoned a Meteor");
@@ -45,7 +48,8 @@ public class pitManger : MonoBehaviour {
 				break;
 			case "sllll":
 				Debug.Log ("We summoned an Imp");
-				SummonMeteor ();
+				//SummonMeteor ();
+				DemonSpawner.SpawnDevil(this.TeamID);
 				break;
 			default:
 				break;
@@ -67,7 +71,7 @@ public class pitManger : MonoBehaviour {
 		//Pick one until we find an empty one.
 		while (numAttempts < numTargets && foundEmpty == false) {
 			int Target = Random.Range (0, numTargets - 1);
-			GameObject currentTarget = meteorTargets [Target];
+			GameObject currentTarget = meteorTargets[Target];
 			if (hasMeteor [Target] == false) {
 				GameObject newMeteor = GameObject.Instantiate (MeteorPrefab) as GameObject;
 				newMeteor.transform.position = currentTarget.transform.position;
