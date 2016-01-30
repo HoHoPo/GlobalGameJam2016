@@ -9,18 +9,16 @@ public class spawnDemon : MonoBehaviour {
         if (gameObject.name == "Team1Pit")
         {
 
-            GameObject demon = (GameObject)Instantiate(Resources.Load("devilprefab"), position, Quaternion.Euler(0, 270, 0));
-            demon.name = "devil";
+			GameObject demon = SpawnDevil (0);
         } else if (gameObject.name == "Team2Pit")
         {
-            GameObject demon = (GameObject)Instantiate(Resources.Load("impprefab"), position, Quaternion.Euler(0, 90, 0));
-            demon.name = "imp";
+			GameObject demon = SpawnDemon (1, "imp");
         }
 
     }
 
 	public GameObject SpawnDevil(int teamID){
-		Vector3 position = gameObject.transform.position;
+		/*Vector3 position = gameObject.transform.position;
 
 		GameObject demon = (GameObject)Instantiate(Resources.Load("devilprefab"));
 		demon.transform.position=position;
@@ -33,9 +31,29 @@ public class spawnDemon : MonoBehaviour {
 				demon.transform.rotation = Quaternion.Euler(0, 90, 0);
 		}
 
+		return demon;*/
+		return SpawnDemon (teamID, "devil");
+
+	}
+
+	public GameObject SpawnDemon(int teamID, string DemonType){
+		Vector3 position = gameObject.transform.position;
+
+		GameObject demon = (GameObject)Instantiate(Resources.Load(DemonType+"prefab"));
+		demon.transform.position=position;
+
+		demon.name = DemonType;
+
+		if (teamID == 0) {
+			demon.transform.rotation = Quaternion.Euler(0, 270, 0);
+		}
+		if(teamID == 1){
+			demon.transform.rotation = Quaternion.Euler(0, 90, 0);
+		}
+
 		return demon;
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 	
