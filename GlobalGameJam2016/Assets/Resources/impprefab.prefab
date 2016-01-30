@@ -188,8 +188,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb6dcd031b4c87b438074b536b8fc4b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
+  speed: 5
   moving: 0
+  targetPoint: {fileID: 0}
+  team: 0
+  enemyPitName: 
 --- !u!114 &11483236
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -251,6 +254,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: speed
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
