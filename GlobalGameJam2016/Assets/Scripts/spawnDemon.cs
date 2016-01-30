@@ -5,16 +5,16 @@ public class spawnDemon : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        if (gameObject.name == "Team1")
+        Vector3 position = gameObject.transform.position;
+        if (gameObject.name == "Team1Pit")
         {
-            GameObject demon = (GameObject)Instantiate(Resources.Load("devilprefab"), gameObject.transform.position, Quaternion.Euler(0, 270, 0));
-            var boxCol = demon.AddComponent<BoxCollider>();
+
+            GameObject demon = (GameObject)Instantiate(Resources.Load("devilprefab"), position, Quaternion.Euler(0, 270, 0));
  
             demon.name = "devil";
-        } else if (gameObject.name == "Team2")
+        } else if (gameObject.name == "Team2Pit")
         {
-            GameObject demon = (GameObject)Instantiate(Resources.Load("devilprefab"), gameObject.transform.position, Quaternion.Euler(0, 90, 0));
-            demon.AddComponent<BoxCollider>();
+            GameObject demon = (GameObject)Instantiate(Resources.Load("impprefab"), position, Quaternion.Euler(0, 90, 0));
             demon.name = "devil";
         }
 
