@@ -12,7 +12,9 @@ public class resouceManager : MonoBehaviour {
 
     public static Dictionary<string, bool> resourcePatterns = new Dictionary<string, bool>
     {
-        { "sls" ,true}
+        { "sls" ,true },
+        { "sllls",true }
+        
 
     };
 	
