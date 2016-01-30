@@ -7,9 +7,9 @@ public class flyingDemonMovement : demonMovement {
 	void Start () {
         base.Start();
 
-        Vector3
+        //Vector3
 
-        gameObject.transform.position.y = 60;
+        //gameObject.transform.position.y = 60;
 	}
 	
 	// Update is called once per frame

@@ -36,7 +36,7 @@ public class spawnDemon : MonoBehaviour {
 
     public GameObject SpawnFlying(int teamID)
     {
-        return SpawnDemon(teamID, "flying");
+        return SpawnDemon(teamID, "bomber");
     }
 
 	public GameObject SpawnDemon(int teamID, string DemonType){
