@@ -59,7 +59,7 @@ public class pitManger : MonoBehaviour {
 		int numAttempts = 0;
 		while (numAttemps < numTargets) {
 			if (hasMeteor [Target] == false) {
-				GameObject.Instantiate(MeteorPrefab,
+				//GameObject.Instantiate(MeteorPrefab,
 			}
 		}
 
