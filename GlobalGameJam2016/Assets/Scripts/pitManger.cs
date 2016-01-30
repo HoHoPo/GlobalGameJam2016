@@ -9,6 +9,7 @@ public class pitManger : MonoBehaviour {
 
     private string inPit;
     public Text pitResourcesText;
+    public GameObject MenuScene;
     public GameObject ProgressObject;
     public float ProgressObjectHeight =1;
     public int health = 1;
@@ -155,7 +156,8 @@ public class pitManger : MonoBehaviour {
         health -= amount;
         if(health < 0)
         {
-           //end game
+            //end game
+            UnityEngine.SceneManagement.SceneManager.LoadScene(2);
         }
     }
 }
