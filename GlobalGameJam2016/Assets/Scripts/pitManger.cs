@@ -11,6 +11,7 @@ public class pitManger : MonoBehaviour {
     public Text pitResourcesText;
     public GameObject ProgressObject;
     public float ProgressObjectHeight =1;
+    public int health = 1;
     private List<GameObject> lights = new List<GameObject>(); 
 	public List<GameObject> meteorTargets;
 	public GameObject MeteorPrefab;
@@ -147,5 +148,10 @@ public class pitManger : MonoBehaviour {
 			}
 
         }
+    }
+
+    public void takeDamage(int amount)
+    {
+        health -= amount;
     }
 }

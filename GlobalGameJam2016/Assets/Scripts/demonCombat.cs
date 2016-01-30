@@ -35,23 +35,21 @@ public class demonCombat : MonoBehaviour {
         attack();
     }
 
-    void attack()
+    private void attack()
     {
         var enemyCombat = curEnemy.GetComponent<demonCombat>();
 
         enemyCombat.takeDamage(damage);
         enemyCombat.hitpoints -= damage;
+    }
 
+    public void attackPit(string pitName)
+    {
+        var enemyPit = GameObject.Find(pitName);
 
-  /*      if (!enemyCombat.alive || curEnemy ==null)
-        {
-            curEnemy = null;
+        var enemyPitManager = enemyPit.GetComponent<pitManger>();
 
-            demonMovement movement = gameObject.GetComponent<demonMovement>();
-
-            movement.moving = true;
-
-        }*/
+        enemyPitManager.takeDamage(damage);
     }
 
     public void takeDamage(int amount)
@@ -75,6 +73,7 @@ public class demonCombat : MonoBehaviour {
             demonMovement movement = gameObject.GetComponent<demonMovement>();
 
             movement.moving = true;
+            inCombat = false;
         }
 
         if (timer <= 0 && curEnemy != null)

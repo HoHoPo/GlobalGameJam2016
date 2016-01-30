@@ -6,23 +6,14 @@ public class demonMovement : MonoBehaviour {
     public float speed;
     public bool moving;
 
-    
+    public GameObject targetPoint;
+
+    public int team;
+    public string enemyPitName;
 
 	// Use this for initialization
 	void Start () {
         moving = true;
-
-        switch (gameObject.name)
-        {
-            case "devil":
-                speed = 5;
-                break;
-            case "imp":
-                speed = 10;
-                break;
-            default:
-                break;
-        }
 	
 	}
 	
@@ -37,11 +28,20 @@ public class demonMovement : MonoBehaviour {
 
     void OnTriggerEnter(Collider col)
     {
+        var combat = gameObject.GetComponent<demonCombat>();
         if (col.gameObject.name == "devil" || col.gameObject.name == "imp")
         {
             moving = false;
-            var combat = gameObject.GetComponent<demonCombat>();
+            
             combat.beginCombat(col.gameObject);     
+        } 
+        
+        if (col.gameObject == targetPoint)
+        {
+            this.moving = false;
+            combat.attackPit(enemyPitName);
+            
+            
         }
 
     }
