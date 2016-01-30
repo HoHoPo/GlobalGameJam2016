@@ -201,6 +201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitpoints: 5
   damage: 2
+  attackSpeed: 2
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -238,6 +239,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: damage
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: attackSpeed
       value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
