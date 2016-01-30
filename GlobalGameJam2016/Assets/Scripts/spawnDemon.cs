@@ -24,6 +24,7 @@ public class spawnDemon : MonoBehaviour {
 
 		GameObject demon = (GameObject)Instantiate(Resources.Load("devilprefab"));
 		demon.transform.position=position;
+		demon.name = "devil";
 
 		if (teamID == 0) {
 				demon.transform.rotation = Quaternion.Euler(0, 270, 0);
