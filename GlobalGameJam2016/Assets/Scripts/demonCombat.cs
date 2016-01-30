@@ -75,6 +75,7 @@ public class demonCombat : MonoBehaviour {
             demonMovement movement = gameObject.GetComponent<demonMovement>();
 
             movement.moving = true;
+            inCombat = false;
         }
 
         if (timer <= 0 && curEnemy != null)
