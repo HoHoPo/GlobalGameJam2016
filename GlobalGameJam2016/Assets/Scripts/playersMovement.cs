@@ -15,10 +15,32 @@ public class playersMovement : MonoBehaviour
 
     //public
     public float setspeed =10f;
+    public float slowTime = 4f;
     public float turnSmoothing = 15f;
     public controls PlayerControls;
+    private bool _slowed = false;
     //efects
-    public bool slowed = false;
+    public bool slowed
+    {
+        get
+        {
+            return _slowed;
+        }
+        set
+        {
+
+            if (value == true)
+            {
+                speed = setspeed / 2;
+                slowTimer = Time.time;
+            }
+            else if (value == false)
+            {
+                speed = setspeed;
+            }
+                _slowed = value;
+        }
+    }
 
     [SerializeField]
     private pitManger pit;
@@ -139,28 +161,14 @@ public class playersMovement : MonoBehaviour
 			}
         }
 
-        if (slowed)
-        {
-            speed = setspeed / 2;
-        }
-        else
-        {
-            speed = setspeed;
-        }
-
-        if ((Time.time - slowTimer) >= 5f)
-        {
-            if (slowed)
-            {
+        if ((Time.time - slowTimer) >= slowTime)
+        { 
                 slowed = false;
-            }
+          
         }
 
     }
-    public void slowplayer() {
-        slowed = true;
-        slowTimer = Time.time;
-    }
+    
     void Rotating (float Horizontal, float Vertical)
     {
         //create a new vector of the horizontal and vertical inputs

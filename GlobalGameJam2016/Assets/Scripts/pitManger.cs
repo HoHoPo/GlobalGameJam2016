@@ -90,11 +90,19 @@ public class pitManger : MonoBehaviour
                     GameObject[] otherTeam;
                     if (TeamID == 0)
                     {
-                        otherTeam = GameObject.FindGameObjectsWithTag("team2");
+                        otherTeam = GameObject.FindGameObjectsWithTag("Team2");
+                        foreach (GameObject player in otherTeam)
+                        {
+                            player.GetComponent<playersMovement>().slowed = true;
+                        }
                     }
                     else if (TeamID == 1)
                     {
-                        otherTeam = GameObject.FindGameObjectsWithTag("team1");
+                        otherTeam = GameObject.FindGameObjectsWithTag("Team1");
+                        foreach (GameObject player in otherTeam)
+                        {
+                            player.GetComponent<playersMovement>().slowed = true;
+                        }
                     }
                     break;
                 default:
