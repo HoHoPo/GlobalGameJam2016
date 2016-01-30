@@ -15,7 +15,7 @@ public class demonMovement : MonoBehaviour
     private bool frontline;
 
     // Use this for initialization
-    void Start()
+    protected void Start()
     {
         moving = true;
         frontline = false;
