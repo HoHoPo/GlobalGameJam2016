@@ -13,7 +13,9 @@ using System.Collections;
 public class ResourePile : MonoBehaviour {
 
     public resouceManager.resourceType type;
-	public bool infinte = true;
+    //The prefab given to the player when they pickup this type
+    public GameObject pickupPrefab;
+    public bool infinte = true;
     public double respawnSeconds = 2;
     private double timeoff = 0;
 
@@ -37,9 +39,9 @@ public class ResourePile : MonoBehaviour {
             }
         }
     }
-    // Use this for initialization
-    void Start()
-    {
+	
+	//// Use this for initialization
+	void Start () {
 
         this.gameObject.tag = ("resource");
 	}

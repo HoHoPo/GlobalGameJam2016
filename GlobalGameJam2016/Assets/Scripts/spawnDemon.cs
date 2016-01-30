@@ -5,7 +5,7 @@ public class spawnDemon : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        Vector3 position = gameObject.transform.position;
+
         if (gameObject.name == "Team1Pit")
 		{
 			GameObject demon = SpawnDevil (0);
@@ -30,16 +30,32 @@ public class spawnDemon : MonoBehaviour {
 		Vector3 position = gameObject.transform.position;
 
 		GameObject demon = (GameObject)Instantiate(Resources.Load(DemonType+"prefab"));
-		demon.transform.position=position;
 
 		demon.name = DemonType;
 
-		if (teamID == 0) {
-			demon.transform.rotation = Quaternion.Euler(0, 270, 0);
-		}
-		if(teamID == 1){
+        GameObject spawnPoint;
+        var movement = demon.GetComponent<demonMovement>();
+
+        if (teamID == 0) {
+            spawnPoint = GameObject.Find("team_2 demonspawn");
+            demon.transform.position = spawnPoint.transform.position;
 			demon.transform.rotation = Quaternion.Euler(0, 90, 0);
+
+            movement.targetPoint = GameObject.Find("team_1 demonspawn");
+            movement.enemyPitName = "Team1Pit";
+           
+
+        }
+		if(teamID == 1){
+            spawnPoint = GameObject.Find("team_1 demonspawn");
+            demon.transform.position = spawnPoint.transform.position;
+            demon.transform.rotation = Quaternion.Euler(0, 270, 0);
+
+            movement.targetPoint = GameObject.Find("team_2 demonspawn");
+            movement.enemyPitName = "Team2Pit";
 		}
+
+        movement.team = teamID;
 
 		return demon;
 	}
