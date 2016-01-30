@@ -24,9 +24,17 @@ public class pitManger : MonoBehaviour {
         //if()
         if (resouceManager.resourcePatterns.ContainsKey(inPit))
         {
+
+			switch (inPit) {
+			case "sls":
+				Debug.Log ("We summoned SKULL LAVA SKULL");
+				break;
+			default:
+				break;
+			}
+
             //summon thingy
             inPit = "";
-            pitTextUpdate();
         }
         pitTextUpdate();
     }
