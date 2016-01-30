@@ -10,6 +10,7 @@ public class pitManger : MonoBehaviour {
     private string inPit;
     public Text pitResourcesText;
     public GameObject ProgressObject;
+    public float ProgressObjectHeight =1;
     private List<GameObject> lights = new List<GameObject>(); 
 	public List<GameObject> meteorTargets;
 	public GameObject MeteorPrefab;
@@ -119,7 +120,7 @@ public class pitManger : MonoBehaviour {
         else if(diffrence < 0) //add a light
         {
             Vector3 temp = this.gameObject.transform.position;
-            temp.y += 4;
+            temp.y += ProgressObjectHeight;
             switch (lights.Count())
             {
                 case 0:
