@@ -14,9 +14,11 @@ public class playersMovement : MonoBehaviour
     };
 
     //public
-    public float speed =10f;
+    public float setspeed =10f;
     public float turnSmoothing = 15f;
     public controls PlayerControls;
+    //efects
+    public bool slowed = false;
 
     [SerializeField]
     private pitManger pit;
@@ -25,6 +27,8 @@ public class playersMovement : MonoBehaviour
 
     //private
     private bool carrying = false;
+    private float speed = 10f;
+    private float slowTimer;
     private resouceManager.resourceType type;
     private bool atPit = false;
     private Rigidbody rb;
@@ -40,6 +44,8 @@ public class playersMovement : MonoBehaviour
         xMin = teamArea.transform.localPosition.x - teamArea.transform.localScale.x/2;
         yMin = teamArea.transform.localPosition.z - teamArea.transform.localScale.z/2;
 
+        speed = setspeed;
+        slowTimer = Time.time;
 
     }
 
@@ -132,8 +138,29 @@ public class playersMovement : MonoBehaviour
 				Destroy (carryingObject);
 			}
         }
-    }
 
+        if (slowed)
+        {
+            speed = setspeed / 2;
+        }
+        else
+        {
+            speed = setspeed;
+        }
+
+        if ((Time.time - slowTimer) >= 5f)
+        {
+            if (slowed)
+            {
+                slowed = false;
+            }
+        }
+
+    }
+    public void slowplayer() {
+        slowed = true;
+        slowTimer = Time.time;
+    }
     void Rotating (float Horizontal, float Vertical)
     {
         //create a new vector of the horizontal and vertical inputs
