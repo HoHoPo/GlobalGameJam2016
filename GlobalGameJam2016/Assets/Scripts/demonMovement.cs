@@ -28,17 +28,19 @@ public class demonMovement : MonoBehaviour {
 
     void OnTriggerEnter(Collider col)
     {
+        var combat = gameObject.GetComponent<demonCombat>();
         if (col.gameObject.name == "devil" || col.gameObject.name == "imp")
         {
             moving = false;
-            var combat = gameObject.GetComponent<demonCombat>();
+            
             combat.beginCombat(col.gameObject);     
         } 
         
         if (col.gameObject == targetPoint)
         {
             this.moving = false;
-            //var enemyPit = GameObject.Find(enemyPitName);
+            combat.attackPit(enemyPitName);
+            
             
         }
 
