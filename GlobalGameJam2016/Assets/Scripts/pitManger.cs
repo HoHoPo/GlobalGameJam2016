@@ -1,10 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
-<<<<<<< HEAD
 using System.Linq;
-=======
->>>>>>> origin/master
 using System.Collections.Generic;
 
 public class pitManger : MonoBehaviour {
@@ -12,13 +9,10 @@ public class pitManger : MonoBehaviour {
 
     private string inPit;
     public Text pitResourcesText;
-<<<<<<< HEAD
     public GameObject ProgressObject;
     private List<GameObject> lights = new List<GameObject>(); 
-=======
 	public List<GameObject> meteorTargets;
 	public GameObject MeteorPrefab;
->>>>>>> origin/master
 
 	private List<bool> hasMeteor;
 	// Use this for initialization
