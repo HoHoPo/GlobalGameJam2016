@@ -337,7 +337,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
 --- !u!1 &109775744
 GameObject:
   m_ObjectHideFlags: 0
@@ -1011,6 +1011,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pitResourcesText: {fileID: 1828080626}
+  ProgressObject: {fileID: 187406, guid: febb5d888c13cf14a8bd41b4881eb459, type: 2}
+  meteorTargets: []
+  MeteorPrefab: {fileID: 0}
+  TeamID: 0
 --- !u!1 &970551802
 GameObject:
   m_ObjectHideFlags: 0
@@ -1293,6 +1297,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pitResourcesText: {fileID: 569662240}
+  ProgressObject: {fileID: 187406, guid: febb5d888c13cf14a8bd41b4881eb459, type: 2}
+  meteorTargets: []
+  MeteorPrefab: {fileID: 0}
+  TeamID: 0
 --- !u!114 &1121565235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2110,7 +2118,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11495196, guid: d574a877856d8e2448c7379e71960947, type: 2}
       propertyPath: PlayerControls
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11495196, guid: d574a877856d8e2448c7379e71960947, type: 2}
       propertyPath: pit

@@ -41,7 +41,7 @@ public class pitManger : MonoBehaviour {
         foreach (string currentKey in resourceEnumerable)
         {
             matches++;
-            break;
+            //break;
         }
 
         if (resouceManager.resourcePatterns.ContainsKey(inPit))
@@ -140,7 +140,10 @@ public class pitManger : MonoBehaviour {
                 default:
                     break;
             }
-            lights.Add((GameObject)( Instantiate(ProgressObject, temp, new Quaternion(0,0,0,0))));
+
+			if (ProgressObject != null) {
+				lights.Add ((GameObject)(Instantiate (ProgressObject, temp, new Quaternion (0, 0, 0, 0))));
+			}
 
         }
     }
