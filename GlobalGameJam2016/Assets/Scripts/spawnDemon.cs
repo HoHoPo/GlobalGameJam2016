@@ -7,8 +7,7 @@ public class spawnDemon : MonoBehaviour {
 	void Start () {
         Vector3 position = gameObject.transform.position;
         if (gameObject.name == "Team1Pit")
-        {
-
+		{
 			GameObject demon = SpawnDevil (0);
         } else if (gameObject.name == "Team2Pit")
         {
@@ -18,22 +17,13 @@ public class spawnDemon : MonoBehaviour {
     }
 
 	public GameObject SpawnDevil(int teamID){
-		/*Vector3 position = gameObject.transform.position;
 
-		GameObject demon = (GameObject)Instantiate(Resources.Load("devilprefab"));
-		demon.transform.position=position;
-		demon.name = "devil";
-
-		if (teamID == 0) {
-				demon.transform.rotation = Quaternion.Euler(0, 270, 0);
-		}
-		if(teamID == 1){
-				demon.transform.rotation = Quaternion.Euler(0, 90, 0);
-		}
-
-		return demon;*/
 		return SpawnDemon (teamID, "devil");
 
+	}
+
+	public GameObject SpawnImp(int teamID){
+		return SpawnDemon (teamID, "imp");
 	}
 
 	public GameObject SpawnDemon(int teamID, string DemonType){
