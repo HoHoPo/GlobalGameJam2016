@@ -12,10 +12,13 @@ public class demonMovement : MonoBehaviour
     public int team;
     public string enemyPitName;
 
+    private bool frontline;
+
     // Use this for initialization
     void Start()
     {
         moving = true;
+        frontline = false;
 
     }
 
@@ -39,11 +42,11 @@ public class demonMovement : MonoBehaviour
             if (enemyMovement.team != team)
             {
                 moving = false;
+                frontline = true;
                 combat.beginCombat(col.gameObject);
             }
-            else
+            else if (!frontline)
             {
-                Debug.Log("djfhasdl");
                 moving = false;
             }
 
@@ -65,7 +68,7 @@ public class demonMovement : MonoBehaviour
         if (col.gameObject.name == "devil" || col.gameObject.name == "imp")
         {
             var enemyMovement = col.gameObject.GetComponent<demonMovement>();
-            if (enemyMovement.team != team)
+            if (enemyMovement.team == team)
             {
                 moving = true;
             }

@@ -4,6 +4,8 @@ using System.Collections;
 public class spawnDemon : MonoBehaviour {
 
     public bool initialSpawn;
+
+    private bool click = true;
 	// Use this for initialization
 	void Start () {
 
@@ -68,9 +70,14 @@ public class spawnDemon : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         //DEBUG DELETE LATER
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && click)
         {
-            SpawnDemon(0, "imp");
+            if (gameObject.name == "Team1Pit")
+            {
+                SpawnDemon(0, "imp");
+            }
+            
+            click = false;
         }
 	
 	}
