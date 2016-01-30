@@ -26,14 +26,19 @@ public class pitManger : MonoBehaviour {
         {
 
 			switch (inPit) {
-			case "sls":
+			case "sleig":
 				Debug.Log ("We summoned SKULL LAVA SKULL");
+				break;
+			case "elelg":
+				Debug.Log ("We summoned a Meteor");
+				break;
+			case "sllll":
+				Debug.Log ("We summoned an Imp");
 				break;
 			default:
 				break;
 			}
 
-            //summon thingy
             inPit = "";
         }
         pitTextUpdate();
