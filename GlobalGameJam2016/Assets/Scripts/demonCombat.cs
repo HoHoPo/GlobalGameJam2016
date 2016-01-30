@@ -27,6 +27,7 @@ public class demonCombat : MonoBehaviour {
 
     public void beginCombat(GameObject enemy)
     {
+        
         inCombat = true;
         timer = attackSpeed;
 
@@ -37,6 +38,7 @@ public class demonCombat : MonoBehaviour {
 
     private void attack()
     {
+        
         var enemyCombat = curEnemy.GetComponent<demonCombat>();
 
         enemyCombat.takeDamage(damage);
