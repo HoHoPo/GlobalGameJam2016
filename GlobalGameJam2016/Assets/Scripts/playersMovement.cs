@@ -4,10 +4,19 @@ using System.Collections;
 [RequireComponent(typeof(Rigidbody))]
 public class playersMovement : MonoBehaviour
 {
+    public enum controls
+    {
+        keyboard,
+        joystick1,
+        joystick2,
+        joystick3,
+        joystick4
+    };
 
     //public
     public float speed =10f;
     public float turnSmoothing = 15f;
+    public controls PlayerControls;
     public GameObject teamBase;
 
     //private
@@ -34,9 +43,38 @@ public class playersMovement : MonoBehaviour
     //called before physics updates -- physics should go here
     void FixedUpdate()
     {
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
-        bool throwKey = Input.GetButton("Jump");
+
+        float moveHorizontal;
+        float moveVertical;
+        bool throwKey;
+        switch (PlayerControls)
+        {
+            case controls.joystick1:
+                moveHorizontal = Input.GetAxis("HorizontalJoy1");
+                moveVertical = Input.GetAxis("VerticalJoy1");
+                throwKey = Input.GetButton("UseCircleJoy1");
+                break;
+            case controls.joystick2:
+                moveHorizontal = Input.GetAxis("HorizontalJoy2");
+                moveVertical = Input.GetAxis("VerticalJoy2");
+                throwKey = Input.GetButton("UseCircleJoy2");
+                break;
+            case controls.joystick3:
+                moveHorizontal = Input.GetAxis("HorizontalJoy3");
+                moveVertical = Input.GetAxis("VerticalJoy3");
+                throwKey = Input.GetButton("UseCircleJoy3");
+                break;
+            case controls.joystick4:
+                moveHorizontal = Input.GetAxis("HorizontalJoy4");
+                moveVertical = Input.GetAxis("VerticalJoy4");
+                throwKey = Input.GetButton("UseCircleJoy4");
+                break;
+            default:
+                moveHorizontal = Input.GetAxis("Horizontal");
+                moveVertical = Input.GetAxis("Vertical");
+                throwKey = Input.GetButton("UseCircle");
+                break;
+        }
 
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
         rb.velocity = movement * speed;
