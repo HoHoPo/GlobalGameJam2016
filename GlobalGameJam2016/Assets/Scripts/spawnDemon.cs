@@ -16,7 +16,8 @@ public class spawnDemon : MonoBehaviour {
             }
             else if (gameObject.name == "Team2Pit")
             {
-                GameObject demon = SpawnDemon(1, "imp");
+                //GameObject demon = SpawnDemon(1, "imp");
+                SpawnFlying(1);
             }
         }
 
@@ -32,6 +33,11 @@ public class spawnDemon : MonoBehaviour {
 	public GameObject SpawnImp(int teamID){
 		return SpawnDemon (teamID, "imp");
 	}
+
+    public GameObject SpawnFlying(int teamID)
+    {
+        return SpawnDemon(teamID, "flying");
+    }
 
 	public GameObject SpawnDemon(int teamID, string DemonType){
 		Vector3 position = gameObject.transform.position;

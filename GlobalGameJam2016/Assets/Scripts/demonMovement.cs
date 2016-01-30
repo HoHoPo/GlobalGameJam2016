@@ -23,7 +23,7 @@ public class demonMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    protected void Update()
     {
         if (moving)
         {
@@ -65,7 +65,8 @@ public class demonMovement : MonoBehaviour
 
     void OnTriggerExit(Collider col)
     {
-        if (col.gameObject.name == "devil" || col.gameObject.name == "imp")
+        //if (col.gameObject.name == "devil" || col.gameObject.name == "imp")
+        if (col.gameObject.tag == "demon")
         {
             var enemyMovement = col.gameObject.GetComponent<demonMovement>();
             if (enemyMovement.team == team)
