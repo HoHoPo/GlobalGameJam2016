@@ -27,6 +27,7 @@ GameObject:
   - 4: {fileID: 454466}
   - 65: {fileID: 6555160}
   - 114: {fileID: 11491498}
+  - 114: {fileID: 11412480}
   m_Layer: 0
   m_Name: bomberprefab
   m_TagString: demon
@@ -53,7 +54,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 137430}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071067}
+  m_LocalRotation: {x: 0.00000011518241, y: 0.7069846, z: 0.70722896, w: -0.00000011522223}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
@@ -104,6 +105,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.6, y: 3.2, z: 0.8}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &11412480
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 162190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccc123df40c85bd4f830aa10b326338c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitpoints: 1
+  damage: 100
+  attackSpeed: 1
+  alive: 0
 --- !u!114 &11491498
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -115,11 +131,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 663430e0ad3e0b2459d61288c11bc050, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
+  speed: 5
   moving: 0
   targetPoint: {fileID: 0}
   team: 0
   enemyPitName: 
+  diveSpeed: 20
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -129,19 +146,19 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: m_LocalRotation.x
-      value: -0.7071068
+      value: 0.00000011518241
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 0.70722896
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalRotation.w
-      value: 0.7071067
+      value: -0.00000011522223
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.7069846
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_IsTrigger
@@ -186,6 +203,26 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Size.z
       value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: speed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: diveSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: hitpoints
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: damage
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: attackSpeed
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

@@ -105,6 +105,10 @@ public class pitManger : MonoBehaviour
                         }
                     }
                     break;
+                case "ggsig":
+                    Debug.Log("We summoned a Bomber");
+                    DemonSpawner.SpawnFlying(this.TeamID);
+                    break;
                 default:
                     break;
             }

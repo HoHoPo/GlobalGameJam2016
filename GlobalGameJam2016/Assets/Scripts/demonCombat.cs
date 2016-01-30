@@ -13,7 +13,7 @@ public class demonCombat : MonoBehaviour {
 
     private float timer;
 
-    private GameObject curEnemy;
+    protected GameObject curEnemy;
 
 
 	// Use this for initialization
@@ -36,13 +36,19 @@ public class demonCombat : MonoBehaviour {
         attack();
     }
 
-    private void attack()
+    public void attack()
     {
         
         var enemyCombat = curEnemy.GetComponent<demonCombat>();
 
         enemyCombat.takeDamage(damage);
         enemyCombat.hitpoints -= damage;
+
+        if (gameObject.name == "bomber")
+        {
+            Destroy(gameObject);
+            Destroy(curEnemy);
+        }
     }
 
     public void attackPit(string pitName)

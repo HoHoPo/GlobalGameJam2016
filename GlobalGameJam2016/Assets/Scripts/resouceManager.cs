@@ -19,7 +19,8 @@ public class resouceManager : MonoBehaviour {
 		{ "elelg", true },
 		{ "sllll", true },
 		{ "sleig", true },
-        {"iiseg",true }
+        {"iiseg",true },
+        {"ggsig", true }
         
 
     };

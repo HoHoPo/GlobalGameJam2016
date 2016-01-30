@@ -30,7 +30,7 @@ public class titlescreen : MonoBehaviour {
             Application.LoadLevel("MainScene");
         }
         {
-            Debug.Log("moo");
+
         }
 	
 	}
