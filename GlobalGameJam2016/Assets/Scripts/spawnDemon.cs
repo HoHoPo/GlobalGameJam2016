@@ -3,16 +3,21 @@ using System.Collections;
 
 public class spawnDemon : MonoBehaviour {
 
+    public bool initialSpawn;
 	// Use this for initialization
 	void Start () {
 
-        if (gameObject.name == "Team1Pit")
-		{
-			GameObject demon = SpawnDevil (0);
-        } else if (gameObject.name == "Team2Pit")
-        {
-			GameObject demon = SpawnDemon (1, "imp");
+        if (initialSpawn) {
+            if (gameObject.name == "Team1Pit")
+            {
+                GameObject demon = SpawnDevil(0);
+            }
+            else if (gameObject.name == "Team2Pit")
+            {
+                GameObject demon = SpawnDemon(1, "imp");
+            }
         }
+
 
     }
 
@@ -62,6 +67,11 @@ public class spawnDemon : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+        //DEBUG DELETE LATER
+        if (Input.GetMouseButtonDown(0))
+        {
+            SpawnDemon(0, "imp");
+        }
 	
 	}
 }
