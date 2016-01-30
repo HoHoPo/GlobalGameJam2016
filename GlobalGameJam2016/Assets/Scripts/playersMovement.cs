@@ -46,6 +46,13 @@ public class playersMovement : MonoBehaviour
     //called before physics updates -- physics should go here
     void FixedUpdate()
     {
+        if(Input.GetButton("Restart")){
+            UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+        }
+        if (Input.GetButton("Cancel"))
+        {
+            Application.Quit();
+        }
 
         float moveHorizontal;
         float moveVertical;

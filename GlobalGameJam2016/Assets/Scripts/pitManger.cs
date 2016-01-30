@@ -9,7 +9,7 @@ public class pitManger : MonoBehaviour {
 
     private string inPit;
     public Text pitResourcesText;
-    public GameObject MenuScene;
+    public Canvas GameOver;
     public GameObject ProgressObject;
     public float ProgressObjectHeight =1;
     public int health = 1;
@@ -157,7 +157,7 @@ public class pitManger : MonoBehaviour {
         if(health < 0)
         {
             //end game
-            UnityEngine.SceneManagement.SceneManager.LoadScene(2);
+            GameOver.enabled = true;
         }
     }
 }
