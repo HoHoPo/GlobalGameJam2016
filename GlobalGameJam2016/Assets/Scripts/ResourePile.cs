@@ -4,6 +4,9 @@ using System.Collections;
 public class ResourePile : MonoBehaviour {
 
     public resouceManager.resourceType type;
+
+	//The prefab given to the player when they pickup this type
+	public GameObject pickupPrefab;
 	//public bool infinte = true;
 	//public double probSpawnPerSecond = 0.5;
 	//private double timeoff = 0;

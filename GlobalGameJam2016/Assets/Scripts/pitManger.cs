@@ -51,7 +51,7 @@ public class pitManger : MonoBehaviour {
 			switch (inPit) {
 			case "sleig":
 				Debug.Log ("We summoned SKULL LAVA SKULL");
-
+				DemonSpawner.SpawnDevil (this.TeamID);
 				break;
 			case "elelg":
 				Debug.Log ("We summoned a Meteor");
@@ -60,7 +60,7 @@ public class pitManger : MonoBehaviour {
 			case "sllll":
 				Debug.Log ("We summoned an Imp");
 				//SummonMeteor ();
-				DemonSpawner.SpawnDevil(this.TeamID);
+				DemonSpawner.SpawnImp(this.TeamID);
 				break;
 			default:
 				break;

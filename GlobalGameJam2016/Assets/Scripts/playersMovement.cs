@@ -29,6 +29,7 @@ public class playersMovement : MonoBehaviour
     private bool atPit = false;
     private Rigidbody rb;
     private float xMin, yMin, xMax, yMax;
+	GameObject carryingObject;
 
     // Use this for initialization
     void Start()
@@ -110,11 +111,19 @@ public class playersMovement : MonoBehaviour
         {
             pit.addResource(type);
             carrying = false;
+			if (carryingObject != null) {
+				Destroy (carryingObject);
+				carryingObject = null;
+			}
+
         }
         if (discardKey==true && carrying == true && atPit == false)
         {
             //discard Item
             carrying = false;
+			if (carryingObject != null) {
+				Destroy (carryingObject);
+			}
         }
     }
 
@@ -123,8 +132,8 @@ public class playersMovement : MonoBehaviour
         //create a new vector of the horizontal and vertical inputs
         Vector3 targetDirection = new Vector3(Horizontal, 0f, Vertical);
 
-            //create a rotation based on this new vector assuming that up is the global y axis
-            Quaternion targetRotation = Quaternion.LookRotation(targetDirection, Vector3.up);
+        //create a rotation based on this new vector assuming that up is the global y axis
+        Quaternion targetRotation = Quaternion.LookRotation(targetDirection, Vector3.up);
 
         //create a rotation that is an increment closer to the target rotation from the players rotation
         Quaternion newRotation = Quaternion.Lerp(rb.rotation, targetRotation, turnSmoothing * Time.deltaTime);
@@ -143,6 +152,11 @@ public class playersMovement : MonoBehaviour
             //{
             type = target.type;
             carrying = true;
+			if (target.pickupPrefab != null) {
+				GameObject pickup = GameObject.Instantiate (target.pickupPrefab);
+				pickup.transform.parent = this.transform;
+				carryingObject = pickup;
+			}
             
             //}
         }
