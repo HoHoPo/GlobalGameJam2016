@@ -19,12 +19,16 @@ public class pitManger : MonoBehaviour {
 	public int TeamID;
 	private List<bool> hasMeteor;
 	private spawnDemon DemonSpawner;
+	public pitManger EnemyPit;
+	public ParticleSystem wrongSequence;
+
 	// Use this for initialization
 	void Start () {
         pitResourcesText.text = "pit has nothing";
 		DemonSpawner = this.GetComponent<spawnDemon> ();
 
 		hasMeteor = new List<bool> ();
+	
 		//Initialize meteor tracking
 		for (int i = 0; i < meteorTargets.Count; i++) {
 			hasMeteor.Add (false);
@@ -74,6 +78,10 @@ public class pitManger : MonoBehaviour {
         else if(matches == 0)
         {
             inPit = "";
+			//Trigger out particle
+			if (wrongSequence != null) {
+				wrongSequence.Play ();
+			}
         }
 
         manageLights(inPit.Count());

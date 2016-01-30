@@ -17,7 +17,7 @@ public class resouceManager : MonoBehaviour {
     {
         { "sls" ,true },
         { "sllls",true },
-		{ "ele", true },
+		{ "elelg", true },
 		{ "sleig", true },
 		{ "sllll", true }
         
