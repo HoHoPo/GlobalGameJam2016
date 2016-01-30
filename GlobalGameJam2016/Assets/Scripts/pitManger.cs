@@ -1,7 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+<<<<<<< HEAD
 using System.Linq;
+=======
+>>>>>>> origin/master
 using System.Collections.Generic;
 
 public class pitManger : MonoBehaviour {
@@ -9,12 +12,24 @@ public class pitManger : MonoBehaviour {
 
     private string inPit;
     public Text pitResourcesText;
+<<<<<<< HEAD
     public GameObject ProgressObject;
     private List<GameObject> lights = new List<GameObject>(); 
+=======
+	public List<GameObject> meteorTargets;
+	public GameObject MeteorPrefab;
+>>>>>>> origin/master
 
+	private List<bool> hasMeteor;
 	// Use this for initialization
 	void Start () {
         pitResourcesText.text = "pit has nothing";
+
+		hasMeteor = new List<bool> ();
+		//Initialize meteor tracking
+		for (int i = 0; i < meteorTargets.Count; i++) {
+			hasMeteor.Add (false);
+		}
     }
 	
 	// Update is called once per frame
@@ -37,14 +52,21 @@ public class pitManger : MonoBehaviour {
         {
 
 			switch (inPit) {
-			case "sls":
+			case "sleig":
 				Debug.Log ("We summoned SKULL LAVA SKULL");
+				break;
+			case "elelg":
+				Debug.Log ("We summoned a Meteor");
+				SummonMeteor ();
+				break;
+			case "sllll":
+				Debug.Log ("We summoned an Imp");
+				SummonMeteor ();
 				break;
 			default:
 				break;
 			}
 
-            //summon thingy
             inPit = "";
 
         }
@@ -56,6 +78,29 @@ public class pitManger : MonoBehaviour {
         manageLights(inPit.Count());
         pitTextUpdate();
     }
+
+	public void SummonMeteor(){
+		int numTargets = meteorTargets.Count;
+		//int Target = Random.RandomRange (0, numTargets - 1);
+		//GameObject currentTarget = meteorTargets [Target];
+
+		int numAttempts = 0;
+		bool foundEmpty = false;
+
+		//Pick one until we find an empty one.
+		while (numAttempts < numTargets && foundEmpty == false) {
+			int Target = Random.Range (0, numTargets - 1);
+			GameObject currentTarget = meteorTargets [Target];
+			if (hasMeteor [Target] == false) {
+				GameObject newMeteor = GameObject.Instantiate (MeteorPrefab) as GameObject;
+				newMeteor.transform.position = currentTarget.transform.position;
+				hasMeteor [Target] = true;
+				foundEmpty = true;
+			}
+			numAttempts++;
+		}
+
+	}
 
     public void pitTextUpdate()
     {
