@@ -31,11 +31,13 @@ public class demonMovement : MonoBehaviour {
 
     void OnCollisionEnter(Collision col)
     {
-        Debug.Log("moo");
+
         switch (col.gameObject.name)
         {
             case "devil":
-                Debug.Log("col");
+
+                break;
+            case "imp":
                 break;
             default:
                 break;
