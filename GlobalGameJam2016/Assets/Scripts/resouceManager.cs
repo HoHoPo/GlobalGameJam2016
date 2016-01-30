@@ -15,11 +15,11 @@ public class resouceManager : MonoBehaviour {
 
     public static Dictionary<string, bool> resourcePatterns = new Dictionary<string, bool>
     {
-        { "sls" ,true },
         { "sllls",true },
 		{ "elelg", true },
+		{ "sllll", true },
 		{ "sleig", true },
-		{ "sllll", true }
+        {"iiseg",true }
         
 
     };

@@ -68,7 +68,19 @@ public class pitManger : MonoBehaviour {
 				//SummonMeteor ();
 				DemonSpawner.SpawnImp(this.TeamID);
 				break;
-			default:
+                case "iiseg":
+                    Debug.Log("We slowed Someone!");
+                    GameObject[] otherTeam;
+                    if(TeamID == 0)
+                    {
+                        otherTeam = GameObject.FindGameObjectsWithTag("team2");
+                    }
+                    else if (TeamID == 1)
+                    {
+                        otherTeam = GameObject.FindGameObjectsWithTag("team1");
+                    }
+                    break;
+            default:
 				break;
 			}
 
