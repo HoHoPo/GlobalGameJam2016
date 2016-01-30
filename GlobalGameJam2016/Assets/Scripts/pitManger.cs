@@ -15,6 +15,9 @@ public class pitManger : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         pitResourcesText.text = "pit has nothing";
+
+		hasMeteor = new List<bool> ();
+		//Initialize meteor tracking
 		for (int i = 0; i < meteorTargets.Count; i++) {
 			hasMeteor.Add (false);
 		}
@@ -42,6 +45,7 @@ public class pitManger : MonoBehaviour {
 				break;
 			case "sllll":
 				Debug.Log ("We summoned an Imp");
+				SummonMeteor ();
 				break;
 			default:
 				break;
@@ -52,15 +56,25 @@ public class pitManger : MonoBehaviour {
         pitTextUpdate();
     }
 
-	public void SummonMetoer(){
+	public void SummonMeteor(){
 		int numTargets = meteorTargets.Count;
-		int Target = Random.RandomRange (0, numTargets - 1);
-		GameObject currentTarget = meteorTargets [Target];
+		//int Target = Random.RandomRange (0, numTargets - 1);
+		//GameObject currentTarget = meteorTargets [Target];
+
 		int numAttempts = 0;
-		while (numAttemps < numTargets) {
+		bool foundEmpty = false;
+
+		//Pick one until we find an empty one.
+		while (numAttempts < numTargets && foundEmpty == false) {
+			int Target = Random.Range (0, numTargets - 1);
+			GameObject currentTarget = meteorTargets [Target];
 			if (hasMeteor [Target] == false) {
-				//GameObject.Instantiate(MeteorPrefab,
+				GameObject newMeteor = GameObject.Instantiate (MeteorPrefab) as GameObject;
+				newMeteor.transform.position = currentTarget.transform.position;
+				hasMeteor [Target] = true;
+				foundEmpty = true;
 			}
+			numAttempts++;
 		}
 
 	}
