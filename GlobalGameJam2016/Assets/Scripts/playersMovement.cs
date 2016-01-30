@@ -50,8 +50,14 @@ public class playersMovement : MonoBehaviour
                 Mathf.Clamp(rb.position.z, yMin, yMax)
                 );
         }
-        //update rotation
-        Rotating(moveHorizontal, moveVertical);
+
+        // If there is some axis input...
+        if (moveHorizontal != 0f || moveVertical != 0f)
+        {
+            //update rotation
+            Rotating(moveHorizontal, moveVertical);
+        }
+
 
         //update throw state
         if(throwKey == true)
@@ -65,8 +71,8 @@ public class playersMovement : MonoBehaviour
         //create a new vector of the horizontal and vertical inputs
         Vector3 targetDirection = new Vector3(Horizontal, 0f, Vertical);
 
-        //create a rotation based on this new vector assuming that up is the global y axis
-        Quaternion targetRotation = Quaternion.LookRotation(targetDirection, Vector3.up);
+            //create a rotation based on this new vector assuming that up is the global y axis
+            Quaternion targetRotation = Quaternion.LookRotation(targetDirection, Vector3.up);
 
         //create a rotation that is an increment closer to the target rotation from the players rotation
         Quaternion newRotation = Quaternion.Lerp(rb.rotation, targetRotation, turnSmoothing * Time.deltaTime);
