@@ -149,6 +149,10 @@ Prefab:
       propertyPath: setspeed
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 197396, guid: d574a877856d8e2448c7379e71960947, type: 2}
+      propertyPath: m_TagString
+      value: Team1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d574a877856d8e2448c7379e71960947, type: 2}
   m_IsPrefabParent: 0
@@ -513,6 +517,10 @@ Prefab:
       propertyPath: setspeed
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 197396, guid: d574a877856d8e2448c7379e71960947, type: 2}
+      propertyPath: m_TagString
+      value: Team2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d574a877856d8e2448c7379e71960947, type: 2}
   m_IsPrefabParent: 0
@@ -643,11 +651,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 424404, guid: 192cbde3255024c4db5ee90badf67dce, type: 2}
       propertyPath: m_RootOrder
-      value: 23
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 169314, guid: 192cbde3255024c4db5ee90badf67dce, type: 2}
       propertyPath: m_Name
-      value: team_2 Gold
+      value: team_2 gold
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 192cbde3255024c4db5ee90badf67dce, type: 2}
@@ -710,7 +718,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 473250, guid: 2f146082886b34b28a56e7463d5af5c2, type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2f146082886b34b28a56e7463d5af5c2, type: 2}
@@ -769,7 +777,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 405048, guid: 6858beb93dfeb4ff695c234322055366, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 153014, guid: 6858beb93dfeb4ff695c234322055366, type: 2}
       propertyPath: m_Name
@@ -973,11 +981,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 405408, guid: cc6b49a46c0dd42b8be832a45c5a1b1c, type: 2}
       propertyPath: m_RootOrder
-      value: 23
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 197468, guid: cc6b49a46c0dd42b8be832a45c5a1b1c, type: 2}
       propertyPath: m_Name
-      value: team_2 skulls
+      value: team_2 skull
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cc6b49a46c0dd42b8be832a45c5a1b1c, type: 2}
@@ -1114,7 +1122,7 @@ MonoBehaviour:
   pitResourcesText: {fileID: 1828080626}
   GameOver: {fileID: 1823288788}
   ProgressObject: {fileID: 187406, guid: febb5d888c13cf14a8bd41b4881eb459, type: 2}
-  ProgressObjectHeight: 1
+  ProgressObjectHeight: 2
   health: 1
   meteorTargets:
   - {fileID: 1095297802}
@@ -1728,7 +1736,7 @@ MonoBehaviour:
   pitResourcesText: {fileID: 569662240}
   GameOver: {fileID: 1823288788}
   ProgressObject: {fileID: 187406, guid: febb5d888c13cf14a8bd41b4881eb459, type: 2}
-  ProgressObjectHeight: 1
+  ProgressObjectHeight: 2
   health: 1
   meteorTargets:
   - {fileID: 1804842269}
@@ -1805,7 +1813,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 473250, guid: 2f146082886b34b28a56e7463d5af5c2, type: 2}
       propertyPath: m_RootOrder
-      value: 23
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 156426, guid: 2f146082886b34b28a56e7463d5af5c2, type: 2}
       propertyPath: m_Name
@@ -1851,7 +1859,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 405408, guid: cc6b49a46c0dd42b8be832a45c5a1b1c, type: 2}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 197468, guid: cc6b49a46c0dd42b8be832a45c5a1b1c, type: 2}
+      propertyPath: m_Name
+      value: team_1 skull
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cc6b49a46c0dd42b8be832a45c5a1b1c, type: 2}
@@ -2225,6 +2237,10 @@ Prefab:
     - target: {fileID: 11495196, guid: d574a877856d8e2448c7379e71960947, type: 2}
       propertyPath: setspeed
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 197396, guid: d574a877856d8e2448c7379e71960947, type: 2}
+      propertyPath: m_TagString
+      value: Team2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d574a877856d8e2448c7379e71960947, type: 2}
@@ -2839,6 +2855,10 @@ Prefab:
     - target: {fileID: 11495196, guid: d574a877856d8e2448c7379e71960947, type: 2}
       propertyPath: setspeed
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 197396, guid: d574a877856d8e2448c7379e71960947, type: 2}
+      propertyPath: m_TagString
+      value: Team1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d574a877856d8e2448c7379e71960947, type: 2}

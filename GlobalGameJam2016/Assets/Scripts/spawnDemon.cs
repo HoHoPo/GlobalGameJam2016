@@ -69,16 +69,16 @@ public class spawnDemon : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-        //DEBUG DELETE LATER
-        if (Input.GetMouseButtonDown(0) && click)
-        {
-            if (gameObject.name == "Team1Pit")
-            {
-                SpawnDemon(0, "imp");
-            }
+        ////DEBUG DELETE LATER
+        //if (Input.GetMouseButtonDown(0) && click)
+        //{
+        //    if (gameObject.name == "Team1Pit")
+        //    {
+        //        SpawnDemon(0, "imp");
+        //    }
             
-            click = false;
-        }
+        //    click = false;
+        //}
 	
 	}
 }
