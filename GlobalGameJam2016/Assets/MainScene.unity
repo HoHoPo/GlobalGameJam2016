@@ -41,7 +41,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 6
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_LightmapsMode: 1
   m_GISettings:
     serializedVersion: 2
@@ -66,7 +66,8 @@ LightmapSettings:
     m_FinalGather: 0
     m_FinalGatherRayCount: 1024
     m_ReflectionCompression: 2
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000001, guid: 9e364b504f9153f48a264d4b9e1e1229,
+    type: 2}
   m_RuntimeCPUUsage: 25
 --- !u!196 &4
 NavMeshSettings:
@@ -1351,6 +1352,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 970551804}
   - 108: {fileID: 970551803}
+  - 114: {fileID: 970551805}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -1382,11 +1384,11 @@ Light:
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_BounceIntensity: 0.64
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -1403,6 +1405,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
+--- !u!114 &970551805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 970551802}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b113ed6ed026ac74f8b1bf58faa47898, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &976740546 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100006, guid: a94c6326c4490294b9d3398a3106692c, type: 3}
