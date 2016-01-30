@@ -16,7 +16,7 @@ public class resouceManager : MonoBehaviour {
     public static Dictionary<string, bool> resourcePatterns = new Dictionary<string, bool>
     {
         { "sls" ,true},
-		{ "ele", true},
+		{ "elelg", true},
 		{ "sleig", true},
 		{ "sllll", true}
 
