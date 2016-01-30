@@ -40,10 +40,10 @@ public class flyingDemonMovement : demonMovement {
         {
             transform.Translate(Vector3.down * diveSpeed * Time.deltaTime);
         }
-        Debug.Log("still alive");
 
 	}
 
+    //destroys when it leaves the screen
     void OnBecameInvisible()
     {
         Destroy(gameObject);

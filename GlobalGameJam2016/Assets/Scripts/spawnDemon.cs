@@ -12,7 +12,8 @@ public class spawnDemon : MonoBehaviour {
         if (initialSpawn) {
             if (gameObject.name == "Team1Pit")
             {
-                GameObject demon = SpawnDevil(0);
+                //GameObject demon = SpawnDevil(0);
+                SpawnFlying(0);
             }
             else if (gameObject.name == "Team2Pit")
             {

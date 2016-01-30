@@ -37,7 +37,6 @@ public class demonMovement : MonoBehaviour
         var combat = gameObject.GetComponent<demonCombat>();
         if (col.gameObject.tag == "demon")
         {
-
             //team information is in movement. Probably shouldn't be?
             var enemyMovement = col.gameObject.GetComponent<demonMovement>();
 
@@ -46,7 +45,6 @@ public class demonMovement : MonoBehaviour
             {
                 moving = false;
                 frontline = true;
-                Debug.Log(gameObject.name);
                 combat.beginCombat(col.gameObject);
             }
             else if (!frontline)
@@ -69,7 +67,6 @@ public class demonMovement : MonoBehaviour
 
     void OnTriggerExit(Collider col)
     {
-        //if (col.gameObject.name == "devil" || col.gameObject.name == "imp")
         if (col.gameObject.tag == "demon")
         {
             var enemyMovement = col.gameObject.GetComponent<demonMovement>();
