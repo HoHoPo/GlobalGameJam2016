@@ -160,22 +160,23 @@ public class playersMovement : MonoBehaviour
             
             //}
         }
+    }
 
-        if (other.gameObject.CompareTag("pit"))
+    void OnTriggerEnter(Collider col)
+    {
+        if (col.gameObject.CompareTag("pit"))
         {
             atPit = true;
         }
     }
-
-    void OnCollisionExit(Collision other)
+    void OnTriggerExit(Collider col)
     {
-
-        if (other.gameObject.CompareTag("pit"))
+        if (col.gameObject.CompareTag("pit"))
         {
             atPit = false;
         }
     }
     #endregion
-    }
+}
 
 

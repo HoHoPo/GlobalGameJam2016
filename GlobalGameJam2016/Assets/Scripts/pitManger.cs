@@ -153,5 +153,9 @@ public class pitManger : MonoBehaviour {
     public void takeDamage(int amount)
     {
         health -= amount;
+        if(health < 0)
+        {
+           //end game
+        }
     }
 }
