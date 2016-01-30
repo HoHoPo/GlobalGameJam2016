@@ -49,32 +49,38 @@ public class playersMovement : MonoBehaviour
         float moveHorizontal;
         float moveVertical;
         bool throwKey;
+        bool discardKey;
         switch (PlayerControls)
         {
             case controls.joystick1:
                 moveHorizontal = Input.GetAxis("HorizontalJoy1");
                 moveVertical = Input.GetAxis("VerticalJoy1");
                 throwKey = Input.GetButton("UseCircleJoy1");
+                discardKey = Input.GetButton("BJoy1");
                 break;
             case controls.joystick2:
                 moveHorizontal = Input.GetAxis("HorizontalJoy2");
                 moveVertical = Input.GetAxis("VerticalJoy2");
                 throwKey = Input.GetButton("UseCircleJoy2");
+                discardKey = Input.GetButton("BJoy2");
                 break;
             case controls.joystick3:
                 moveHorizontal = Input.GetAxis("HorizontalJoy3");
                 moveVertical = Input.GetAxis("VerticalJoy3");
                 throwKey = Input.GetButton("UseCircleJoy3");
+                discardKey = Input.GetButton("BJoy3");
                 break;
             case controls.joystick4:
                 moveHorizontal = Input.GetAxis("HorizontalJoy4");
                 moveVertical = Input.GetAxis("VerticalJoy4");
                 throwKey = Input.GetButton("UseCircleJoy4");
+                discardKey = Input.GetButton("BJoy4");
                 break;
             default:
                 moveHorizontal = Input.GetAxis("Horizontal");
                 moveVertical = Input.GetAxis("Vertical");
                 throwKey = Input.GetButton("UseCircle");
+                discardKey = Input.GetButton("bButton");
                 break;
         }
 
@@ -100,9 +106,15 @@ public class playersMovement : MonoBehaviour
 
 
         //update throw state
-        if(throwKey == true)
+        if (throwKey == true && carrying == true && atPit == true)
         {
-            throwInteraction();
+            pit.addResource(type);
+            carrying = false;
+        }
+        if (discardKey==true && carrying == true && atPit == false)
+        {
+            //discard Item
+            carrying = false;
         }
     }
 
@@ -150,21 +162,6 @@ public class playersMovement : MonoBehaviour
         }
     }
     #endregion
-
-    void throwInteraction()
-    {
-        if (carrying == true && atPit == true)
-        {
-            //put item into the pit
-            pit.addResource(type);
-            carrying = false;    
-
-        }
-        else if (carrying == true && atPit == false)
-        {
-            //discard Item
-            carrying = false;    
-        }
     }
 
-}
+
