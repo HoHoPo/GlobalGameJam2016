@@ -76,6 +76,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 101
+  pickupPrefab: {fileID: 198440, guid: 19e3b496033fd477eb5459d53f0f5e89, type: 2}
 --- !u!136 &13682894
 CapsuleCollider:
   m_ObjectHideFlags: 1
