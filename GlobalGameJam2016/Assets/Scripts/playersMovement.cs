@@ -17,25 +17,27 @@ public class playersMovement : MonoBehaviour
     public float speed =10f;
     public float turnSmoothing = 15f;
     public controls PlayerControls;
-    public GameObject teamBase;
+
+    [SerializeField]
+    private pitManger pit;
+    [SerializeField]
+    private GameObject teamArea;
 
     //private
     private bool carrying = false;
     private resouceManager.resourceType type;
     private bool atPit = false;
     private Rigidbody rb;
-    private pitManger pit;
     private float xMin, yMin, xMax, yMax;
 
     // Use this for initialization
     void Start()
     {
         rb = this.GetComponent<Rigidbody>();
-        pit = GameObject.FindGameObjectWithTag("pit").GetComponent<pitManger>();
-        xMax = teamBase.transform.localPosition.x + teamBase.transform.localScale.x/2;
-        yMax = teamBase.transform.localPosition.z + teamBase.transform.localScale.z/2;
-            xMin = teamBase.transform.localPosition.x - teamBase.transform.localScale.x/2;
-        yMin     = teamBase.transform.localPosition.z - teamBase.transform.localScale.z/2;
+        xMax = teamArea.transform.localPosition.x + teamArea.transform.localScale.x/2;
+        yMax = teamArea.transform.localPosition.z + teamArea.transform.localScale.z/2;
+        xMin = teamArea.transform.localPosition.x - teamArea.transform.localScale.x/2;
+        yMin = teamArea.transform.localPosition.z - teamArea.transform.localScale.z/2;
 
 
     }
@@ -79,7 +81,7 @@ public class playersMovement : MonoBehaviour
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
         rb.velocity = movement * speed;
 
-        if (teamBase != null)
+        if (teamArea != null)
         {
             rb.position = new Vector3(
 
