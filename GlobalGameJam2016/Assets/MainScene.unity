@@ -141,6 +141,10 @@ Prefab:
       propertyPath: PlayerControls
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2374892, guid: d574a877856d8e2448c7379e71960947, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c00b0255705d64092a811bf434e9de05, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d574a877856d8e2448c7379e71960947, type: 2}
   m_IsPrefabParent: 0
@@ -579,6 +583,10 @@ Prefab:
       propertyPath: PlayerControls
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 2374892, guid: d574a877856d8e2448c7379e71960947, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 868086e70346d4f75b3c0412c2a5a4cd, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d574a877856d8e2448c7379e71960947, type: 2}
   m_IsPrefabParent: 0
@@ -700,11 +708,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11438880, guid: 192cbde3255024c4db5ee90badf67dce, type: 2}
       propertyPath: infinte
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11438880, guid: 192cbde3255024c4db5ee90badf67dce, type: 2}
       propertyPath: respawnSeconds
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 192cbde3255024c4db5ee90badf67dce, type: 2}
@@ -1196,6 +1204,14 @@ Prefab:
     - target: {fileID: 169314, guid: 192cbde3255024c4db5ee90badf67dce, type: 2}
       propertyPath: m_Name
       value: team_1 gold
+      objectReference: {fileID: 0}
+    - target: {fileID: 11438880, guid: 192cbde3255024c4db5ee90badf67dce, type: 2}
+      propertyPath: infinte
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11438880, guid: 192cbde3255024c4db5ee90badf67dce, type: 2}
+      propertyPath: respawnSeconds
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 192cbde3255024c4db5ee90badf67dce, type: 2}
@@ -2316,7 +2332,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 411472, guid: d574a877856d8e2448c7379e71960947, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -22.53
+      value: -22.51
       objectReference: {fileID: 0}
     - target: {fileID: 411472, guid: d574a877856d8e2448c7379e71960947, type: 2}
       propertyPath: m_LocalPosition.y
@@ -2366,6 +2382,10 @@ Prefab:
       propertyPath: PlayerControls
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 2374892, guid: d574a877856d8e2448c7379e71960947, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 35c72952211c549d88cac1269d511b9a, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d574a877856d8e2448c7379e71960947, type: 2}
   m_IsPrefabParent: 0
