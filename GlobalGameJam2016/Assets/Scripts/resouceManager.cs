@@ -4,7 +4,8 @@ using System.Collections.Generic;
 
 public class resouceManager : MonoBehaviour {
 
-	public enum resourceType
+    public delegate void castEvent(bool _isCast);
+    public enum resourceType
     {
         skull = 's',
         lava = 'l',
@@ -26,15 +27,16 @@ public class resouceManager : MonoBehaviour {
 
 public interface RitualAction
 {
+    event resouceManager.castEvent isCast;
     void Ritual(pitManger playerPit);
-    bool isCast();
+ //   bool isCast();
 }
 
 #region RitualActions
 public class Metor : RitualAction
 {
-
-    private bool _cast = false;
+    public event resouceManager.castEvent isCast;
+    
     public Metor()
     {
 
@@ -43,18 +45,15 @@ public class Metor : RitualAction
     public void Ritual(pitManger playerPit)
     {
         playerPit.SummonMeteor();
-        _cast = true;
+        isCast(true);
 
-    }
-    public bool isCast()
-    {
-        return _cast;
     }
 }
 
 public class slow :  RitualAction
 {
-    private bool _cast = false;
+
+    public event resouceManager.castEvent isCast;
     public slow()
     {
 
@@ -80,17 +79,13 @@ public class slow :  RitualAction
                 player.GetComponent<playersMovement>().slowed = true;
             }
         }
-        _cast = true;
-    }
-    public bool isCast()
-    {
-        return _cast;
+        isCast(true);
     }
 }
 
 public class SummonDevil :  RitualAction
-{
-    private bool _cast = false;
+{ 
+    public event resouceManager.castEvent isCast;
     public SummonDevil()
     {
 
@@ -99,17 +94,13 @@ public class SummonDevil :  RitualAction
     public void Ritual(pitManger playerPit)
     {
         playerPit.GetComponent<spawnDemon>().SpawnDevil(playerPit.TeamID);
-        _cast = true;
-    }
-    public bool isCast()
-    {
-        return _cast;
+        isCast(true);
     }
 }
 
 public class SummonImp :  RitualAction
-{
-    private bool _cast = false;
+{ 
+    public event resouceManager.castEvent isCast;
     public SummonImp()
     {
 
@@ -118,18 +109,15 @@ public class SummonImp :  RitualAction
     public void Ritual(pitManger playerPit)
     {
         playerPit.GetComponent<spawnDemon>().SpawnImp(playerPit.TeamID);
-        _cast = true;
-    }
-    public bool isCast()
-    {
-        return _cast;
+        isCast(true);
     }
 }
 
 public class SummonBomber :  RitualAction
 {
-    private bool _cast = false;
-    public SummonBomber()
+
+        public event resouceManager.castEvent isCast;
+        public SummonBomber()
     {
 
     }
@@ -137,11 +125,7 @@ public class SummonBomber :  RitualAction
     public void Ritual(pitManger playerPit)
     {
         playerPit.GetComponent<spawnDemon>().SpawnFlying(playerPit.TeamID);
-        _cast = true;
-    }
-    public bool isCast()
-    {
-        return _cast;
+            isCast(true);
     }
 }
 #endregion
