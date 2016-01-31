@@ -31,10 +31,20 @@ public class pitManger : MonoBehaviour
 
     private randRituals rituals;
 
+    private AudioSource addSuccessAudio;
+    private AudioSource addFailAudio;
+    private AudioSource[] audioSources;
+
     // Use this for initialization
     void Start()
     {
         pitResourcesText.text = "pit has nothing";
+
+        audioSources = GetComponents<AudioSource>();
+
+        addSuccessAudio = audioSources[0];
+        addFailAudio = audioSources[1];
+
 
         hasMeteor = new List<bool>();
 
@@ -54,6 +64,7 @@ public class pitManger : MonoBehaviour
 
             if (Time.time - lightTimerStart > lightDelay && playersInside > 3)
             {
+
                 turnOnLight();
                 lightTimerStart = -1;
             }
@@ -106,6 +117,7 @@ public class pitManger : MonoBehaviour
 				wrongSequence.Stop();
                 wrongSequence.Play();
             }
+            addFailAudio.Play();
         }
 
         manageLights(inPit.Count());
@@ -156,6 +168,7 @@ public class pitManger : MonoBehaviour
         }
         else if (diffrence < 0) //add a light
         {
+            addSuccessAudio.Play();
             Vector3 temp = this.gameObject.transform.position;
             temp.y += ProgressObjectHeight;
             switch (lights.Count())
