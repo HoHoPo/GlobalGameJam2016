@@ -17,7 +17,7 @@ public class ResourePile : MonoBehaviour {
     public GameObject pickupPrefab;
     public bool infinte = true;
     public double respawnSeconds = 2;
-    private double timeoff = 0;
+    private double timeoff = -1;
     public GameObject ringprefab;
     private bool visual = false;
 
@@ -61,12 +61,16 @@ public class ResourePile : MonoBehaviour {
                 Instantiate(ringprefab,this.transform.position+ new Vector3(0f,.5f,0f),this.transform.rotation);
             }
             visual = true;
-           // run visual
-            if ((Time.time - timeoff) > respawnSeconds)
+            // run visual
+            if (timeoff > 0)
             {
-                ready = true;
-                visual = false;
-                //   turn off visual
+                if ((Time.time - timeoff) > respawnSeconds)
+                {
+                    ready = true;
+                    visual = false;
+                    timeoff = -1;
+                    //   turn off visual
+                }
             }
         }
     }
