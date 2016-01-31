@@ -5,6 +5,10 @@ public class spawnDemon : MonoBehaviour {
 
     public bool initialSpawn;
 
+   /* private AudioSource pitacceptance;
+    private AudioSource demonspawns;
+    private AudioSource[] audioSources;*/
+
     private bool click = true;
 	// Use this for initialization
 	void Start () {
@@ -20,8 +24,8 @@ public class spawnDemon : MonoBehaviour {
             else if (gameObject.name == "Team2Pit")
             {
                 //GameObject demon = SpawnDemon(1, "imp");
-                SpawnDevil(1);
-                //SpawnImp(1);
+                //SpawnDevil(1);
+                SpawnImp(1);
                 //SpawnFlying(1);
             }
         }
