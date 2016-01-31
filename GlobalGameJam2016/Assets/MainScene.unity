@@ -499,7 +499,7 @@ Prefab:
       objectReference: {fileID: 1507528514}
     - target: {fileID: 11495196, guid: d574a877856d8e2448c7379e71960947, type: 2}
       propertyPath: PlayerControls
-      value: 0
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d574a877856d8e2448c7379e71960947, type: 2}
@@ -619,6 +619,14 @@ Prefab:
     - target: {fileID: 169314, guid: 192cbde3255024c4db5ee90badf67dce, type: 2}
       propertyPath: m_Name
       value: team_2 gold
+      objectReference: {fileID: 0}
+    - target: {fileID: 11438880, guid: 192cbde3255024c4db5ee90badf67dce, type: 2}
+      propertyPath: infinte
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11438880, guid: 192cbde3255024c4db5ee90badf67dce, type: 2}
+      propertyPath: respawnSeconds
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 192cbde3255024c4db5ee90badf67dce, type: 2}

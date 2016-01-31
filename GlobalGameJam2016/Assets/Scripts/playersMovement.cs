@@ -190,8 +190,8 @@ public class playersMovement : MonoBehaviour
         if (other.gameObject.CompareTag("resource") && carrying == false)
         {
             ResourePile target = other.gameObject.GetComponent<ResourePile>();
-            //if (target.ready)
-            //{
+            if (target.ready)
+            {
             type = target.type;
             carrying = true;
 			if (target.pickupPrefab != null) {
@@ -199,8 +199,9 @@ public class playersMovement : MonoBehaviour
 				pickup.transform.parent = this.transform;
 				carryingObject = pickup;
 			}
+                target.ready = false;
             
-            //}
+            }
         }
     }
 

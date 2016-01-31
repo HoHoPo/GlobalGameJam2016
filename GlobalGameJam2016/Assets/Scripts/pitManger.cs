@@ -80,7 +80,7 @@ public class pitManger : MonoBehaviour
                     Debug.Log("We summoned a Meteor");
                     SummonMeteor();
                     break;
-                case "sllll":
+                case "sllls":
                     Debug.Log("We summoned an Imp");
                     //SummonMeteor ();
                     DemonSpawner.SpawnImp(this.TeamID);
@@ -105,7 +105,7 @@ public class pitManger : MonoBehaviour
                         }
                     }
                     break;
-                case "ggsig":
+                case "sesls":
                     Debug.Log("We summoned a Bomber");
                     DemonSpawner.SpawnFlying(this.TeamID);
                     break;

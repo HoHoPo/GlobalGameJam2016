@@ -36,6 +36,7 @@ public class ResourePile : MonoBehaviour {
             if (value == false)
             {
                 timeoff = Time.time;
+                
             }
         }
     }
@@ -53,11 +54,11 @@ public class ResourePile : MonoBehaviour {
         if (ready == false)
         {
 
-           // diskScale(Time.time - timeoff / respawnSeconds, true);
+           // run visual
             if ((Time.time - timeoff) > respawnSeconds)
             {
                 ready = true;
-             //   diskScale(Time.time - timeoff / respawnSeconds, true);
+             //   turn off visual
             }
         }
     }
