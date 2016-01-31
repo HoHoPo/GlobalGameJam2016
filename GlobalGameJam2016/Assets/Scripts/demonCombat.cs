@@ -9,6 +9,7 @@ public class demonCombat : MonoBehaviour {
     public float dieTime;
 
     public bool alive;
+    public ParticleSystem explosion;
 
     private bool inCombat;
 
@@ -52,7 +53,7 @@ public class demonCombat : MonoBehaviour {
             audio.Play();
             Destroy(gameObject, 0.1f);
             Destroy(curEnemy, 0.1f);
-
+            Instantiate(explosion,this.transform.position,this.transform.rotation);
             Debug.Log("boom");
 
         }
