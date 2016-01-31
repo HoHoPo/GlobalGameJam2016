@@ -220,7 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb6dcd031b4c87b438074b536b8fc4b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 2
   moving: 1
   targetPoint: {fileID: 0}
   team: 1
@@ -241,6 +241,7 @@ MonoBehaviour:
   attackSpeed: 2
   dieTime: 0.6
   alive: 1
+  explosion: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -290,7 +291,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: speed
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalPosition.y
