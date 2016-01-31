@@ -18,6 +18,8 @@ public class ResourePile : MonoBehaviour {
     public bool infinte = true;
     public double respawnSeconds = 2;
     private double timeoff = 0;
+    public GameObject ringprefab;
+    private bool visual = false;
 
     //public shirnk shirnkage;
     //private GameObject disk;
@@ -53,12 +55,18 @@ public class ResourePile : MonoBehaviour {
     {
         if (ready == false)
         {
+            if (!visual)
+            {
 
+                Instantiate(ringprefab,this.transform.position+ new Vector3(0f,.5f,0f),this.transform.rotation);
+            }
+            visual = true;
            // run visual
             if ((Time.time - timeoff) > respawnSeconds)
             {
                 ready = true;
-             //   turn off visual
+                visual = false;
+                //   turn off visual
             }
         }
     }
