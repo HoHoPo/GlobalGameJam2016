@@ -55,8 +55,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 443416}
-  - 114: {fileID: 11463886}
-  - 114: {fileID: 11486104}
   m_Layer: 0
   m_Name: Team_1 pit pentagram
   m_TagString: Untagged
@@ -95,8 +93,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 181116}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: -0.00000016292068}
-  m_LocalPosition: {x: 18, y: 0.4827773, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalPosition: {x: 0, y: 0.95, z: 0}
+  m_LocalScale: {x: 0.1, y: -1.2, z: 0.1}
   m_Children:
   - {fileID: 412780}
   - {fileID: 487690}
@@ -148,34 +146,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 163978}
   m_Mesh: {fileID: 4300000, guid: a6469838935943842bb75a2b12814a15, type: 3}
---- !u!114 &11463886
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 181116}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7095233dd64689a46a4555489ff8007f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pitResourcesText: {fileID: 0}
-  ProgressObject: {fileID: 0}
-  ProgressObjectHeight: 1
-  meteorTargets: []
-  MeteorPrefab: {fileID: 0}
-  TeamID: 0
---- !u!114 &11486104
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 181116}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1ab9df08387000499034360f36c703f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
