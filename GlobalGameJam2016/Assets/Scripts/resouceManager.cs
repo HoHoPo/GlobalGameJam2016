@@ -13,19 +13,104 @@ public class resouceManager : MonoBehaviour {
 		earth = 'e'
     };
 
-    public static Dictionary<string, bool> resourcePatterns = new Dictionary<string, bool>
+    public static Dictionary<string, RitualAction> resourcePatterns = new Dictionary<string, RitualAction>
     {
-        { "sllls",true },
-		{ "elelg", true },
-		{ "sleig", true },
-        {"iiseg",true },
-        {"sesls", true }
-        
-
+        { "sllls", new SummonDevil() },
+        { "elelg", new Metor() },
+        { "sleig", new SummonDevil() },
+        {"iiseg",new slow() },
+        {"sesls", new SummonBomber() }
     };
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 }
+
+
+public interface RitualAction
+{
+
+    void Ritual(pitManger playerPit);
+
+}
+
+#region RitualActions
+public class Metor : MonoBehaviour, RitualAction
+{
+    public Metor()
+    {
+
+    }
+
+    public void Ritual(pitManger playerPit)
+    {
+        playerPit.SummonMeteor();
+    }
+}
+
+public class slow : MonoBehaviour, RitualAction
+{
+    public slow()
+    {
+
+    }
+
+    public void Ritual(pitManger playerPit)
+    {
+
+        GameObject[] otherTeam;
+        if (playerPit.TeamID == 0)
+        {
+            otherTeam = GameObject.FindGameObjectsWithTag("Team2");
+            foreach (GameObject player in otherTeam)
+            {
+                player.GetComponent<playersMovement>().slowed = true;
+            }
+        }
+        else if (playerPit.TeamID == 1)
+        {
+            otherTeam = GameObject.FindGameObjectsWithTag("Team1");
+            foreach (GameObject player in otherTeam)
+            {
+                player.GetComponent<playersMovement>().slowed = true;
+            }
+        }
+    }
+}
+
+public class SummonDevil : MonoBehaviour, RitualAction
+{
+    public SummonDevil()
+    {
+
+    }
+
+    public void Ritual(pitManger playerPit)
+    {
+        playerPit.GetComponent<spawnDemon>().SpawnDevil(playerPit.TeamID);
+    }
+}
+
+public class SummonImp : MonoBehaviour, RitualAction
+{
+    public SummonImp()
+    {
+
+    }
+
+    public void Ritual(pitManger playerPit)
+    {
+        playerPit.GetComponent<spawnDemon>().SpawnImp(playerPit.TeamID);
+    }
+}
+
+public class SummonBomber : MonoBehaviour, RitualAction
+{
+    public SummonBomber()
+    {
+
+    }
+
+    public void Ritual(pitManger playerPit)
+    {
+        playerPit.GetComponent<spawnDemon>().SpawnFlying(playerPit.TeamID);
+    }
+}
+#endregion

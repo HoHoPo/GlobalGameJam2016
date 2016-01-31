@@ -19,7 +19,6 @@ public class pitManger : MonoBehaviour
     public GameObject MeteorPrefab;
     public int TeamID;
     private List<bool> hasMeteor;
-    private spawnDemon DemonSpawner;
     public pitManger EnemyPit;
     public ParticleSystem wrongSequence;
 
@@ -28,11 +27,12 @@ public class pitManger : MonoBehaviour
     private int playersInside = 0;
     private string resouceName = "";
 
+    private randRituals rituals;
+
     // Use this for initialization
     void Start()
     {
         pitResourcesText.text = "pit has nothing";
-        DemonSpawner = this.GetComponent<spawnDemon>();
 
         hasMeteor = new List<bool>();
 
@@ -41,8 +41,9 @@ public class pitManger : MonoBehaviour
         {
             hasMeteor.Add(false);
         }
+        rituals = GameObject.FindGameObjectWithTag("GameController").GetComponent<randRituals>();
+        
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -60,62 +61,22 @@ public class pitManger : MonoBehaviour
     {
         inPit += (char)(newResource);
         double matches = 0;
-        IEnumerable resourceEnumerable = resouceManager.resourcePatterns.Keys.Where(currentKey => currentKey.StartsWith(inPit));
+        IEnumerable resourceEnumerable = rituals.myRituals.Keys.Where(currentKey => currentKey.StartsWith(inPit));
         foreach (string currentKey in resourceEnumerable)
         {
             matches++;
             //break;
         }
-
-        if (resouceManager.resourcePatterns.ContainsKey(inPit))
+        string Key; 
+        if(rituals.myRituals.TryGetValue(inPit, out Key))
         {
-
-            switch (inPit)
+            RitualAction Action;
+            if (resouceManager.resourcePatterns.TryGetValue(inPit, out Action))
             {
-                case "sleig":
-                    Debug.Log("We summoned SKULL LAVA SKULL");
-                    DemonSpawner.SpawnDevil(this.TeamID);
-                    break;
-                case "elelg":
-                    Debug.Log("We summoned a Meteor");
-                    SummonMeteor();
-                    break;
-                case "sllls":
-                    Debug.Log("We summoned an Imp");
-                    //SummonMeteor ();
-                    DemonSpawner.SpawnImp(this.TeamID);
-                    break;
-                case "iiseg":
-                    Debug.Log("We slowed Someone!");
-                    GameObject[] otherTeam;
-                    if (TeamID == 0)
-                    {
-                        otherTeam = GameObject.FindGameObjectsWithTag("Team2");
-                        foreach (GameObject player in otherTeam)
-                        {
-                            player.GetComponent<playersMovement>().slowed = true;
-                        }
-                    }
-                    else if (TeamID == 1)
-                    {
-                        otherTeam = GameObject.FindGameObjectsWithTag("Team1");
-                        foreach (GameObject player in otherTeam)
-                        {
-                            player.GetComponent<playersMovement>().slowed = true;
-                        }
-                    }
-                    break;
-                case "sesls":
-                    Debug.Log("We summoned a Bomber");
-                    DemonSpawner.SpawnFlying(this.TeamID);
-                    break;
-                default:
-                    break;
+                Action.Ritual(this);
+
             }
-
-            inPit = "";
-
-        }
+        }        
         else if (matches == 0)
         {
             inPit = "";
