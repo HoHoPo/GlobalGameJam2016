@@ -81,7 +81,7 @@ public class pitManger : MonoBehaviour
             if (resouceManager.resourcePatterns.TryGetValue(Key, out Action))
             {
                 Action.Ritual(this);
-
+                inPit = "";
             }
         }        
         else if (matches == 0)

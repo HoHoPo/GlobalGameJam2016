@@ -15,11 +15,11 @@ public class resouceManager : MonoBehaviour {
 
     public static Dictionary<string, RitualAction> resourcePatterns = new Dictionary<string, RitualAction>
     {
-        { "sllls", new SummonImp() },
-        { "elelg", new Metor() },
-        { "sleig", new SummonDevil() },
-        {"iiseg",new slow() },
-        {"sesls", new SummonBomber() }
+        { "sll", new SummonImp() },
+        { "elg", new Metor() },
+        { "sle", new SummonDevil() },
+        {"ieg",new slow() },
+        {"sei", new SummonBomber() }
     };
 }
 
