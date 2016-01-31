@@ -6,6 +6,7 @@ public class demonCombat : MonoBehaviour {
     public int hitpoints;
     public int damage;
     public float attackSpeed;
+    public float dieTime;
 
     public bool alive;
 
@@ -20,6 +21,7 @@ public class demonCombat : MonoBehaviour {
 	void Start () {
         alive = true;
         inCombat = false;
+        dieTime = 0;
 
         curEnemy = null;
 	
@@ -46,8 +48,13 @@ public class demonCombat : MonoBehaviour {
 
         if (gameObject.name == "bomber")
         {
-            Destroy(gameObject);
-            Destroy(curEnemy);
+            AudioSource audio = gameObject.GetComponent<AudioSource>();
+            audio.Play();
+            Destroy(gameObject, 0.1f);
+            Destroy(curEnemy, 0.1f);
+
+            Debug.Log("boom");
+
         }
     }
 
@@ -92,7 +99,15 @@ public class demonCombat : MonoBehaviour {
         }
         if (!alive)
         {
+
             Destroy(gameObject, 1);
+            
+            AudioSource audio = GetComponent<AudioSource>();
+            if (!audio.isPlaying && curEnemy.name != "bomber")
+            {
+                audio.Play();
+            }
+            
         }
 
        
