@@ -8,6 +8,7 @@ public class randRituals : MonoBehaviour {
     public Dictionary<string, string> myRituals;
     // Use this for initialization
     void Start () {
+        myRituals = new Dictionary<string, string>();
         foreach (string key in resouceManager.resourcePatterns.Keys)
         {
             // The random number sequence

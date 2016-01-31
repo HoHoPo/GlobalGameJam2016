@@ -15,7 +15,7 @@ public class resouceManager : MonoBehaviour {
 
     public static Dictionary<string, RitualAction> resourcePatterns = new Dictionary<string, RitualAction>
     {
-        { "sllls", new SummonDevil() },
+        { "sllls", new SummonImp() },
         { "elelg", new Metor() },
         { "sleig", new SummonDevil() },
         {"iiseg",new slow() },
