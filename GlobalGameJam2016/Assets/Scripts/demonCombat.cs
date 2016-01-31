@@ -100,8 +100,8 @@ public class demonCombat : MonoBehaviour {
         }
         if (!alive)
         {
-
-            Destroy(gameObject, 1);
+            this.gameObject.GetComponent<Renderer>().enabled = false;
+            Destroy(gameObject, 4);
             
             AudioSource audio = GetComponent<AudioSource>();
             if (!audio.isPlaying && curEnemy.name != "bomber")

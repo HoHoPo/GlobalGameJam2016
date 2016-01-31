@@ -58,6 +58,7 @@ public class ShowRitual : MonoBehaviour
 
             Vector2 size = new Vector2(50, 50);
             objects[i].GetComponent<RectTransform>().sizeDelta = size;
+            upDateDisplay(true);
         }
 
         //add our event

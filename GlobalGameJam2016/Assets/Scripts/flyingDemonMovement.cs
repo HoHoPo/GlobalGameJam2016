@@ -30,7 +30,7 @@ public class flyingDemonMovement : demonMovement {
             RaycastHit hit;
             if (Physics.Raycast(transform.position, down, out hit))
             {
-                if (hit.collider.tag == "demon")
+                if (hit.collider.tag == "demon" && hit.collider.GetComponent<demonMovement>().team != team)
                 {
                     diving = true;
                 }

@@ -58,8 +58,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 169314}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8, y: 0.5, z: -19}
+  m_LocalRotation: {x: 0, y: 0.30070543, z: 0, w: -0.95371705}
+  m_LocalPosition: {x: -8, y: 0.5, z: -19}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 471676}
@@ -202,8 +202,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 103
   pickupPrefab: {fileID: 198440, guid: 710c7075dafa64e08a32fa77d9498e80, type: 2}
-  infinte: 0
-  respawnSeconds: 15
+  infinte: 1
+  respawnSeconds: 8
   ringprefab: {fileID: 125570, guid: 33775254b467ee84d8e5447454d4295a, type: 2}
 --- !u!136 &13685604
 CapsuleCollider:
