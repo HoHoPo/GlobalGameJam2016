@@ -63,7 +63,7 @@ public class slow :  RitualAction
     {
 
         GameObject[] otherTeam;
-        if (playerPit.TeamID == 0)
+        if (playerPit.TeamID == 1)
         {
             otherTeam = GameObject.FindGameObjectsWithTag("Team2");
             foreach (GameObject player in otherTeam)
@@ -71,7 +71,7 @@ public class slow :  RitualAction
                 player.GetComponent<playersMovement>().slowed = true;
             }
         }
-        else if (playerPit.TeamID == 1)
+        else if (playerPit.TeamID == 0)
         {
             otherTeam = GameObject.FindGameObjectsWithTag("Team1");
             foreach (GameObject player in otherTeam)
