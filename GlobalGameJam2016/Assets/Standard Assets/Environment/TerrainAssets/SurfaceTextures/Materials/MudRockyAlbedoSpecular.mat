@@ -212,7 +212,7 @@ Material:
       data:
         first:
           name: _Glossiness
-        second: 0.5
+        second: 0
       data:
         first:
           name: _BumpScale
@@ -236,7 +236,7 @@ Material:
       data:
         first:
           name: _Metallic
-        second: 0
+        second: 0.016
       data:
         first:
           name: _Cull
