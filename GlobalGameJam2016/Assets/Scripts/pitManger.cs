@@ -65,12 +65,12 @@ public class pitManger : MonoBehaviour
             if (Time.time - lightTimerStart > lightDelay && playersInside > 3)
             {
 
-                turnOnLight();
+                //turnOnLight();
                 lightTimerStart = -1;
             }
             else if (Time.time - lightTimerStart > lightDelaySingle && playersInside < 3)
             {
-                turnOnLight();
+               // turnOnLight();
                 lightTimerStart = -1;
             }
         }
