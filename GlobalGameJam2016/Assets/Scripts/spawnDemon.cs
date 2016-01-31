@@ -5,14 +5,18 @@ public class spawnDemon : MonoBehaviour {
 
     public bool initialSpawn;
 
-   /* private AudioSource pitacceptance;
-    private AudioSource demonspawns;
-    private AudioSource[] audioSources;*/
+    /* private AudioSource pitacceptance;
+     private AudioSource demonspawns;*/
+
+    private AudioSource spawnsound;
+    private AudioSource[] audioSources;
 
     private bool click = true;
 	// Use this for initialization
 	void Start () {
 
+        audioSources = GetComponents<AudioSource>();
+        spawnsound = audioSources[2];
         if (initialSpawn) {
             if (gameObject.name == "Team1Pit")
             {
@@ -49,6 +53,7 @@ public class spawnDemon : MonoBehaviour {
     }
 
 	public GameObject SpawnDemon(int teamID, string DemonType){
+        spawnsound.Play();
 		Vector3 position = gameObject.transform.position;
 
 		GameObject demon = (GameObject)Instantiate(Resources.Load(DemonType+"prefab"));
