@@ -21,6 +21,7 @@ public class pitManger : MonoBehaviour
     private List<bool> hasMeteor;
     public pitManger EnemyPit;
     public ParticleSystem wrongSequence;
+    public GameObject insideCircle;
 
     public double lightDelay = 2;
     public double lightDelaySingle = 5;
@@ -61,6 +62,18 @@ public class pitManger : MonoBehaviour
                 turnOnLight();
                 lightTimerStart = -1;
             }
+        }
+        if (playersInside >= 1)
+        {
+            Color color = insideCircle.GetComponent<Renderer>().material.color;
+            color.a = 1f;
+            insideCircle.GetComponent<Renderer>().material.SetColor("_Color", color);
+        }
+        else
+        {
+            Color color = insideCircle.GetComponent<Renderer>().material.color;
+            color.a = 0f;
+            insideCircle.GetComponent<Renderer>().material.SetColor("_Color", color);
         }
     }
 
