@@ -23,6 +23,7 @@ public class pitManger : MonoBehaviour
     public ParticleSystem wrongSequence;
 
     public double lightDelay = 2;
+    public double lightDelaySingle = 5;
     private double lightTimerStart = -1;
     private int playersInside = 0;
     private string resouceName = "";
@@ -47,9 +48,15 @@ public class pitManger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(lightTimerStart > 0)
+        if (lightTimerStart > 0)
         {
-            if (Time.time - lightTimerStart > lightDelay)
+
+            if (Time.time - lightTimerStart > lightDelay && playersInside > 3)
+            {
+                turnOnLight();
+                lightTimerStart = -1;
+            }
+            else if (Time.time - lightTimerStart > lightDelaySingle && playersInside < 3)
             {
                 turnOnLight();
                 lightTimerStart = -1;
@@ -71,10 +78,10 @@ public class pitManger : MonoBehaviour
         if(rituals.myRituals.TryGetValue(inPit, out Key))
         {
             RitualAction Action;
-            if (resouceManager.resourcePatterns.TryGetValue(inPit, out Action))
+            if (resouceManager.resourcePatterns.TryGetValue(Key, out Action))
             {
                 Action.Ritual(this);
-
+                inPit = "";
             }
         }        
         else if (matches == 0)
@@ -186,7 +193,7 @@ public class pitManger : MonoBehaviour
         {
             playersInside++;
         }
-        if (playersInside == 4)
+        if (playersInside < 4)
         {
             lightTimerStart = Time.time;
         }
@@ -201,6 +208,9 @@ public class pitManger : MonoBehaviour
             {
                 temp.GetComponentInChildren<Light>().enabled = false;
                 //disableTimer
+            }
+            if(playersInside < 2)
+            {
                 lightTimerStart = -1;
             }
 
@@ -210,37 +220,40 @@ public class pitManger : MonoBehaviour
 
     void turnOnLight()
     {
-        List<string> keys = new List<string>();
-        //find a pattern we can make
-        IEnumerable resourceEnumerable = resouceManager.resourcePatterns.Keys.Where(currentKey => currentKey.StartsWith(inPit));
-        foreach (string currentKey in resourceEnumerable)
+        if (inPit.Count() < 5)
         {
-            keys.Add(currentKey);
-        }
-        char chosen = ' ';
-        int tempint = Random.Range(0, keys.Count );
-        Debug.Log(keys[tempint]);
-        chosen = keys[tempint][inPit.Count()];
-        Debug.Log(chosen);
+            List<string> keys = new List<string>();
+            //find a pattern we can make
+            IEnumerable resourceEnumerable = rituals.myRituals.Keys.Where(currentKey => currentKey.StartsWith(inPit));
+            foreach (string currentKey in resourceEnumerable)
+            {
+                keys.Add(currentKey);
+            }
+            char chosen = ' ';
+            int tempint = Random.Range(0, keys.Count);
+            Debug.Log(keys[tempint]);
+            chosen = keys[tempint][inPit.Count()];
+            Debug.Log(chosen);
 
-        //light up next resource
-        resouceName = "";
-        if (TeamID == 0)
-        {
-            resouceName = "team_2 ";
-        }
-        else if (TeamID == 1)
-        {
-            resouceName = "team_1 ";
-        }
-        //find the resource
-        resouceName += (resouceManager.resourceType)(chosen);
-        Debug.Log(resouceName);
-        GameObject temp = GameObject.Find(resouceName);
-        if (temp != null)
-        {
-            Debug.Log("turningOnLight");
-            temp.GetComponentInChildren<Light>().enabled = true;
+            //light up next resource
+            resouceName = "";
+            if (TeamID == 0)
+            {
+                resouceName = "team_2 ";
+            }
+            else if (TeamID == 1)
+            {
+                resouceName = "team_1 ";
+            }
+            //find the resource
+            resouceName += (resouceManager.resourceType)(chosen);
+            Debug.Log(resouceName);
+            GameObject temp = GameObject.Find(resouceName);
+            if (temp != null)
+            {
+                Debug.Log("turningOnLight");
+                temp.GetComponentInChildren<Light>().enabled = true;
+            }
         }
     }
 }

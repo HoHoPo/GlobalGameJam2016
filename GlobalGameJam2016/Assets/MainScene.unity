@@ -634,8 +634,12 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11438880, guid: 192cbde3255024c4db5ee90badf67dce, type: 2}
       propertyPath: respawnSeconds
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 11438880, guid: 192cbde3255024c4db5ee90badf67dce, type: 2}
+      propertyPath: ringprefab
+      value: 
+      objectReference: {fileID: 125570, guid: 33775254b467ee84d8e5447454d4295a, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 192cbde3255024c4db5ee90badf67dce, type: 2}
   m_IsPrefabParent: 0
@@ -1084,6 +1088,7 @@ MonoBehaviour:
   EnemyPit: {fileID: 1121565234}
   wrongSequence: {fileID: 1416352882}
   lightDelay: 2
+  lightDelaySingle: 5
 --- !u!1001 &878747946
 Prefab:
   m_ObjectHideFlags: 0
@@ -1133,8 +1138,12 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11438880, guid: 192cbde3255024c4db5ee90badf67dce, type: 2}
       propertyPath: respawnSeconds
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 11438880, guid: 192cbde3255024c4db5ee90badf67dce, type: 2}
+      propertyPath: ringprefab
+      value: 
+      objectReference: {fileID: 125570, guid: 33775254b467ee84d8e5447454d4295a, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 192cbde3255024c4db5ee90badf67dce, type: 2}
   m_IsPrefabParent: 0
@@ -1818,6 +1827,7 @@ MonoBehaviour:
   EnemyPit: {fileID: 841036065}
   wrongSequence: {fileID: 416993804}
   lightDelay: 2
+  lightDelaySingle: 5
 --- !u!114 &1121565235
 MonoBehaviour:
   m_ObjectHideFlags: 0
