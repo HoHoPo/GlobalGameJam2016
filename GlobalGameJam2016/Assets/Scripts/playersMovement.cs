@@ -158,6 +158,9 @@ public class playersMovement : MonoBehaviour
             carrying = false;
 			if (carryingObject != null) {
 				Destroy (carryingObject);
+                AudioSource audio = GetComponent<AudioSource>();
+                audio.Play();
+
 			}
         }
 
