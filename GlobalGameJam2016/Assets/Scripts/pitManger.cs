@@ -83,6 +83,7 @@ public class pitManger : MonoBehaviour
             //Trigger out particle
             if (wrongSequence != null)
             {
+				wrongSequence.Stop();
                 wrongSequence.Play();
             }
         }
