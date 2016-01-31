@@ -114,8 +114,10 @@ public class pitManger : MonoBehaviour
             //Trigger out particle
             if (wrongSequence != null)
             {
-				wrongSequence.Stop();
-                wrongSequence.Play();
+				//wrongSequence.Stop();
+                //wrongSequence.Play();
+				wrongSequence.Emit (65);
+				wrongSequence.Play ();
             }
             addFailAudio.Play();
         }
