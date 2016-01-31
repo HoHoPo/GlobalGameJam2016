@@ -23,6 +23,7 @@ public class pitManger : MonoBehaviour
     public ParticleSystem wrongSequence;
 
     public double lightDelay = 2;
+    public double lightDelaySingle = 5;
     private double lightTimerStart = -1;
     private int playersInside = 0;
     private string resouceName = "";
@@ -47,9 +48,15 @@ public class pitManger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(lightTimerStart > 0)
+        if (lightTimerStart > 0)
         {
-            if (Time.time - lightTimerStart > lightDelay)
+
+            if (Time.time - lightTimerStart > lightDelay && playersInside > 3)
+            {
+                turnOnLight();
+                lightTimerStart = -1;
+            }
+            else if (Time.time - lightTimerStart > lightDelaySingle && playersInside < 3)
             {
                 turnOnLight();
                 lightTimerStart = -1;
@@ -185,7 +192,7 @@ public class pitManger : MonoBehaviour
         {
             playersInside++;
         }
-        if (playersInside == 4)
+        if (playersInside < 4)
         {
             lightTimerStart = Time.time;
         }
@@ -200,6 +207,9 @@ public class pitManger : MonoBehaviour
             {
                 temp.GetComponentInChildren<Light>().enabled = false;
                 //disableTimer
+            }
+            if(playersInside < 2)
+            {
                 lightTimerStart = -1;
             }
 
